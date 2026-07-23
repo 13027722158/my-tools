@@ -1,0 +1,22 @@
+{
+  "name": "减脂监督打卡",
+  "short_name": "减脂打卡",
+  "description": "135斤→120斤减脂监督工具",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4CAF50",
+  "theme_color": "#4CAF50",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

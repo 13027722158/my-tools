@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="减脂打卡">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#4CAF50">
+<link rel="manifest" href="manifest.json?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png?v=2">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="shortcut icon" href="data:image/png;base64,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">
+<title>减脂监督打卡 - 135→120</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --green: #4CAF50; --green-dark: #388E3C; --green-light: #C8E6C9;
+  --bg: #F5F7F5; --card: #FFFFFF; --text: #333333; --text-light: #777777;
+  --border: #E0E0E0; --danger: #FF6B6B; --orange: #FF9800; --blue: #2196F3;
+  --radius: 16px; --shadow: 0 2px 12px rgba(0,0,0,0.06); --nav-height: 72px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased;
+  display: flex; justify-content: center; min-height: 100vh;
+}
+.app { width: 100%; max-width: 480px; min-height: 100vh; padding-bottom: calc(var(--nav-height) + 20px); position: relative; }
+.header { background: linear-gradient(135deg, var(--green), var(--green-dark)); color: white; padding: 20px 20px 24px; text-align: center; position: sticky; top: 0; z-index: 10; border-radius: 0 0 24px 24px; }
+.header h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { font-size: 13px; opacity: 0.85; }
+.tab-content { display: none; padding: 16px 16px 0; }
+.tab-content.active { display: block; }
+.card { background: var(--card); border-radius: var(--radius); padding: 16px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.card-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.stat-card { background: var(--card); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); text-align: center; }
+.stat-card .label { font-size: 12px; color: var(--text-light); margin-bottom: 4px; }
+.stat-card .value { font-size: 24px; font-weight: 700; }
+.stat-card .unit { font-size: 13px; font-weight: 400; color: var(--text-light); }
+.stat-card.green .value { color: var(--green); }
+.stat-card.orange .value { color: var(--orange); }
+.stat-card.blue .value { color: var(--blue); }
+.progress-wrap { margin: 8px 0; }
+.progress-info { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; color: var(--text-light); }
+.progress-bar { height: 12px; background: var(--green-light); border-radius: 6px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--green-dark)); border-radius: 6px; transition: width 0.5s ease; }
+.chart-wrap { position: relative; height: 220px; margin-top: 8px; }
+.chart-wrap canvas { width: 100% !important; }
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-light); margin-bottom: 4px; }
+.form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: 10px; font-size: 15px; font-family: inherit; background: var(--bg); transition: border-color 0.2s; -webkit-appearance: none; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--green); background: white; }
+.form-row { display: flex; gap: 10px; }
+.form-row .form-group { flex: 1; }
+.btn { width: 100%; padding: 13px; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
+.btn-primary { background: linear-gradient(135deg, var(--green), var(--green-dark)); color: white; }
+.btn-primary:active { transform: scale(0.98); opacity: 0.9; }
+.btn-sm { padding: 8px 16px; font-size: 13px; width: auto; }
+.history-list { list-style: none; }
+.history-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.history-item:last-child { border-bottom: none; }
+.history-item .info { flex: 1; }
+.history-item .date { font-size: 12px; color: var(--text-light); }
+.history-item .detail { font-weight: 600; margin-top: 2px; }
+.history-item .meta { text-align: right; }
+.history-item .cal { font-weight: 700; color: var(--green); }
+.history-item .del { color: var(--danger); font-size: 12px; cursor: pointer; padding: 4px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+.tag-breakfast { background: #FFF3E0; color: #E65100; }
+.tag-lunch { background: #FFF9C4; color: #F57F17; }
+.tag-dinner { background: #E8F5E9; color: #2E7D32; }
+.tag-snack { background: #F3E5F5; color: #7B1FA2; }
+.tag-run { background: #FFEBEE; color: #C62828; }
+.tag-walk { background: #E8F5E9; color: #2E7D32; }
+.tag-hiit { background: #FFF3E0; color: #E65100; }
+.tag-jump { background: #E3F2FD; color: #1565C0; }
+.tag-strength { background: #F3E5F5; color: #6A1B9A; }
+.tag-other { background: #ECEFF1; color: #455A64; }
+.plan-text { font-size: 14px; line-height: 1.5; }
+.plan-text strong { color: var(--green-dark); }
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: white; border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 8px 0 env(safe-area-inset-bottom, 8px); z-index: 100; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 12px; font-size: 11px; color: var(--text-light); cursor: pointer; transition: color 0.2s; -webkit-tap-highlight-color: transparent; border: none; background: none; font-family: inherit; }
+.nav-item .icon { font-size: 22px; }
+.nav-item.active { color: var(--green); font-weight: 600; }
+.empty { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 14px; }
+.empty .icon { font-size: 40px; display: block; margin-bottom: 10px; }
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 200; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.toast.show { opacity: 1; }
+input[type="date"] { color-scheme: light; }
+
+/* Smart input wrapper */
+.smart-input-wrap { position: relative; }
+.suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1.5px solid var(--green); border-top: none; border-radius: 0 0 10px 10px; max-height: 200px; overflow-y: auto; z-index: 50; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.suggestions.show { display: block; }
+.suggestion-item { padding: 10px 14px; cursor: pointer; font-size: 14px; border-bottom: 1px solid var(--bg); display: flex; justify-content: space-between; align-items: center; }
+.suggestion-item:last-child { border-bottom: none; }
+.suggestion-item:hover, .suggestion-item:active { background: var(--green-light); }
+.suggestion-item .food-name { flex: 1; }
+.suggestion-item .food-cal { color: var(--green); font-weight: 600; font-size: 13px; }
+
+/* Cal estimate display */
+.cal-estimate { margin-top: 8px; padding: 10px 14px; background: #E8F5E9; border-radius: 10px; font-size: 14px; display: none; align-items: center; gap: 8px; }
+.cal-estimate.show { display: flex; }
+.cal-estimate .icon { font-size: 20px; }
+.cal-estimate .text { flex: 1; }
+.cal-estimate .number { font-weight: 700; color: var(--green-dark); font-size: 18px; }
+
+/* Portion selector */
+.portion-row { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.portion-btn { padding: 6px 12px; border: 1.5px solid var(--border); border-radius: 20px; background: white; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.portion-btn:hover, .portion-btn.active { border-color: var(--green); background: var(--green-light); color: var(--green-dark); font-weight: 600; }
+
+@media (max-width: 380px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; } .stat-card .value { font-size: 20px; } }
+
+/* Backup buttons */
+.backup-bar { display:flex; gap:8px; padding:8px 16px 16px; }
+.backup-btn { flex:1; padding:8px; border:1.5px solid var(--border); border-radius:10px; background:white; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; display:flex; align-items:center; justify-content:center; gap:4px; }
+.backup-btn:active { background:var(--bg); }
+.backup-btn.export { border-color:var(--green); color:var(--green); }
+.backup-btn.import { border-color:var(--blue); color:var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <h1>🏋️ 减脂监督打卡</h1>
+    <div class="subtitle">135斤 → 120斤 · 90天挑战</div>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="tab-content active" id="tab-dashboard">
+    <div class="stats-grid">
+      <div class="stat-card green"><div class="label">📉 当前体重</div><div class="value" id="dash-weight">135.0<span class="unit">斤</span></div></div>
+      <div class="stat-card orange"><div class="label">🎯 目标体重</div><div class="value">120.0<span class="unit">斤</span></div></div>
+      <div class="stat-card blue"><div class="label">🔥 已减</div><div class="value" id="dash-lost">0.0<span class="unit">斤</span></div></div>
+      <div class="stat-card green"><div class="label">📅 剩余天数</div><div class="value" id="dash-days">90<span class="unit">天</span></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 减脂进度</div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span>起始 135.0斤</span><span id="progress-pct">0%</span><span>目标 120.0斤</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📈 体重趋势</div>
+      <div class="chart-wrap"><canvas id="weightChart"></canvas></div>
+      <div style="text-align:center;font-size:12px;color:var(--text-light);margin-top:8px;" id="chart-empty-msg">还没有体重记录，快去打卡吧~</div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 今日热量概览</div>
+      <div class="stats-grid">
+        <div class="stat-card orange"><div class="label">🍽️ 摄入</div><div class="value" id="today-in">0<span class="unit">大卡</span></div></div>
+        <div class="stat-card blue"><div class="label">🏃 消耗</div><div class="value" id="today-out">0<span class="unit">大卡</span></div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-info"><span>日目标摄入 ≤1600大卡</span><span id="cal-percent">0%</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="cal-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">💡 今日减脂小贴士</div>
+      <div class="plan-text" id="daily-tip">多喝水！每天至少喝 2L 水，有助于代谢和减少饥饿感。</div>
+    </div>
+  </div>
+
+  <!-- ============ WEIGHT ============ -->
+  <div class="tab-content" id="tab-weight">
+    <div class="card">
+      <div class="card-title">⚖️ 体重打卡</div>
+      <div class="form-group"><label>日期</label><input type="date" id="weight-date"></div>
+      <div class="form-group"><label>体重（斤）</label><input type="number" id="weight-value" placeholder="输入今日体重" step="0.1" min="50" max="200" inputmode="decimal"></div>
+      <button class="btn btn-primary" onclick="addWeight()">✅ 打卡</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 体重历史</div>
+      <ul class="history-list" id="weight-list"></ul>
+      <div class="empty" id="weight-empty">📭 还没有体重记录<br>开始打卡吧！</div>
+    </div>
+  </div>
+
+  <!-- ============ DIET (SMART) ============ -->
+  <div class="tab-content" id="tab-diet">
+    <div class="card">
+      <div class="card-title">🍽️ 智能记录饮食</div>
+      <div class="form-group"><label>餐食类型</label>
+        <select id="diet-type">
+          <option value="breakfast">🌅 早餐</option>
+          <option value="lunch">☀️ 午餐</option>
+          <option value="dinner">🌙 晚餐</option>
+          <option value="snack">🍪 加餐/零食</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>🔍 搜索食物（输入关键词自动匹配）</label>
+        <div class="smart-input-wrap">
+          <input type="text" id="diet-name" placeholder="例如：鸡胸肉、米饭、苹果、火锅、麻辣烫..." autocomplete="off">
+          <div class="suggestions" id="diet-suggestions"></div>
+        </div>
+      </div>
+      <div class="form-group" id="portion-group" style="display:none">
+        <label>📏 份量</label>
+        <div class="portion-row" id="portion-btns"></div>
+      </div>
+      <div class="cal-estimate" id="diet-estimate">
+        <span class="icon">🔥</span>
+        <span class="text">预估热量：</span>
+        <span class="number" id="diet-estimate-cal">0 大卡</span>
+      </div>
+      <div class="form-group" id="manual-cal-group" style="display:none">
+        <label>✏️ 手动输入热量（大卡）</label>
+        <input type="number" id="diet-cal" placeholder="搜不到就自己填，例如：350" min="1" max="5000" inputmode="numeric">
+      </div>
+      <div class="form-group"><label>日期</label><input type="date" id="diet-date"></div>
+      <button class="btn btn-primary" onclick="addDiet()">📝 记录</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 饮食记录</div>
+      <ul class="history-list" id="diet-list"></ul>
+      <div class="empty" id="diet-empty">🍽️ 还没有饮食记录<br>搜索食物名称自动估算热量！</div>
+    </div>
+  </div>
+
+  <!-- ============ EXERCISE (SMART) ============ -->
+  <div class="tab-content" id="tab-exercise">
+    <div class="card">
+      <div class="card-title">🏃 智能运动打卡</div>
+      <div class="form-group"><label>运动类型</label>
+        <select id="ex-type" onchange="updateExEstimate()">
+          <option value="run">🏃 跑步</option>
+          <option value="walk">🚶 快走</option>
+          <option value="hiit">💪 HIIT</option>
+          <option value="jump">🪢 跳绳</option>
+          <option value="strength">🏋️ 力量训练</option>
+          <option value="swim">🏊 游泳</option>
+          <option value="bike">🚴 骑行</option>
+          <option value="yoga">🧘 瑜伽</option>
+          <option value="other">🔧 其他</option>
+        </select>
+      </div>
+      <div class="form-group"><label>时长（分钟）</label>
+        <input type="number" id="ex-duration" placeholder="输入时长自动计算消耗" min="1" max="300" inputmode="numeric" oninput="updateExEstimate()">
+      </div>
+      <div class="cal-estimate" id="ex-estimate">
+        <span class="icon">🔥</span>
+        <span class="text">预估消耗：</span>
+        <span class="number" id="ex-estimate-cal">0 大卡</span>
+      </div>
+      <div class="form-group"><label>日期</label><input type="date" id="ex-date"></div>
+      <button class="btn btn-primary" onclick="addExercise()">✅ 打卡</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 运动记录</div>
+      <ul class="history-list" id="ex-list"></ul>
+      <div class="empty" id="ex-empty">🏃 还没有运动记录<br>选择运动+输入时长，自动算消耗！</div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item active" data-tab="dashboard" onclick="switchTab('dashboard')"><span class="icon">🏠</span> 仪表盘</button>
+    <button class="nav-item" data-tab="weight" onclick="switchTab('weight')"><span class="icon">⚖️</span> 体重</button>
+    <button class="nav-item" data-tab="diet" onclick="switchTab('diet')"><span class="icon">🍽️</span> 饮食</button>
+    <button class="nav-item" data-tab="exercise" onclick="switchTab('exercise')"><span class="icon">🏃</span> 运动</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== Constants ==========
+const START_WEIGHT = 135, TARGET_WEIGHT = 120, START_DATE = '2026-07-22', DAYS_TOTAL = 90, DAILY_CAL_TARGET = 1600;
+
+// ========== Food Database ==========
+// Format: { keyword, name, calPer100g, unit, unitWeight, unitCal }
+const FOOD_DB = [
+  // 主食类
+  {kw:'米饭 白米饭 大米饭 饭', name:'白米饭', cal:116, unit:'碗(150g)', uw:150, uc:174},
+  {kw:'杂粮饭 糙米饭 粗粮饭', name:'杂粮饭', cal:120, unit:'碗(150g)', uw:150, uc:180},
+  {kw:'馒头 白馒头', name:'白馒头', cal:223, unit:'个(100g)', uw:100, uc:223},
+  {kw:'全麦面包 面包 吐司', name:'全麦面包', cal:250, unit:'片(30g)', uw:30, uc:75},
+  {kw:'面条 汤面 拉面 挂面', name:'面条(煮)', cal:110, unit:'碗(200g)', uw:200, uc:220},
+  {kw:'红薯 地瓜 番薯 烤红薯', name:'红薯', cal:86, unit:'个(200g)', uw:200, uc:172},
+  {kw:'玉米 苞米 煮玉米', name:'玉米', cal:112, unit:'根(200g)', uw:200, uc:224},
+  {kw:'燕麦 麦片 燕麦片', name:'燕麦片', cal:377, unit:'碗(40g)', uw:40, uc:151},
+  {kw:'小米粥 小米 粥 稀饭', name:'小米粥', cal:46, unit:'碗(250g)', uw:250, uc:115},
+  {kw:'饺子 水饺 煎饺', name:'饺子', cal:240, unit:'个(25g)', uw:25, uc:60},
+  {kw:'包子 肉包 菜包 小笼包', name:'包子', cal:220, unit:'个(80g)', uw:80, uc:176},
+
+  // 蛋白质类
+  {kw:'鸡胸肉 鸡肉 鸡胸', name:'鸡胸肉', cal:133, unit:'块(150g)', uw:150, uc:200},
+  {kw:'鸡腿 鸡腿肉', name:'鸡腿(去皮)', cal:150, unit:'个(100g)', uw:100, uc:150},
+  {kw:'鸡蛋 煮鸡蛋 水煮蛋 蛋', name:'鸡蛋', cal:144, unit:'个(50g)', uw:50, uc:72},
+  {kw:'牛肉 牛排 瘦牛肉', name:'瘦牛肉', cal:125, unit:'份(150g)', uw:150, uc:188},
+  {kw:'猪肉 瘦肉 猪里脊', name:'猪瘦肉', cal:143, unit:'份(100g)', uw:100, uc:143},
+  {kw:'鱼 鱼肉 蒸鱼 清蒸鱼', name:'鱼肉', cal:110, unit:'块(150g)', uw:150, uc:165},
+  {kw:'虾 虾仁 大虾 基围虾', name:'虾仁', cal:99, unit:'份(100g)', uw:100, uc:99},
+  {kw:'豆腐 嫩豆腐 老豆腐', name:'豆腐', cal:82, unit:'块(200g)', uw:200, uc:164},
+  {kw:'牛奶 纯牛奶 鲜奶', name:'牛奶', cal:66, unit:'杯(250ml)', uw:250, uc:165},
+  {kw:'酸奶 无糖酸奶 原味酸奶', name:'无糖酸奶', cal:72, unit:'杯(200g)', uw:200, uc:144},
+  {kw:'豆浆 豆奶', name:'豆浆', cal:31, unit:'杯(300ml)', uw:300, uc:93},
+
+  // 蔬菜类
+  {kw:'西兰花 花菜 绿菜花', name:'西兰花', cal:34, unit:'份(200g)', uw:200, uc:68},
+  {kw:'菠菜 青菜 绿叶菜', name:'菠菜', cal:23, unit:'份(200g)', uw:200, uc:46},
+  {kw:'西红柿 番茄 番茄炒蛋', name:'西红柿', cal:18, unit:'个(150g)', uw:150, uc:27},
+  {kw:'黄瓜 青瓜', name:'黄瓜', cal:16, unit:'根(200g)', uw:200, uc:32},
+  {kw:'胡萝卜 红萝卜', name:'胡萝卜', cal:41, unit:'根(150g)', uw:150, uc:62},
+  {kw:'生菜 沙拉菜', name:'生菜', cal:15, unit:'份(200g)', uw:200, uc:30},
+  {kw:'白菜 大白菜 娃娃菜', name:'大白菜', cal:13, unit:'份(200g)', uw:200, uc:26},
+
+  // 水果类
+  {kw:'苹果 苹果1个', name:'苹果', cal:53, unit:'个(200g)', uw:200, uc:106},
+  {kw:'香蕉 香蕉1根', name:'香蕉', cal:93, unit:'根(120g)', uw:120, uc:112},
+  {kw:'橙子 橘子 柑橘', name:'橙子', cal:47, unit:'个(200g)', uw:200, uc:94},
+  {kw:'葡萄', name:'葡萄', cal:45, unit:'串(200g)', uw:200, uc:90},
+  {kw:'西瓜', name:'西瓜', cal:31, unit:'片(300g)', uw:300, uc:93},
+  {kw:'草莓', name:'草莓', cal:32, unit:'份(150g)', uw:150, uc:48},
+  {kw:'蓝莓', name:'蓝莓', cal:57, unit:'盒(125g)', uw:125, uc:71},
+  {kw:'猕猴桃 奇异果', name:'猕猴桃', cal:61, unit:'个(100g)', uw:100, uc:61},
+  {kw:'牛油果 鳄梨', name:'牛油果', cal:171, unit:'个(100g)', uw:100, uc:171},
+
+  // 零食/饮品
+  {kw:'坚果 核桃 杏仁 腰果 花生 开心果', name:'混合坚果', cal:600, unit:'把(30g)', uw:30, uc:180},
+  {kw:'巧克力', name:'巧克力', cal:550, unit:'块(20g)', uw:20, uc:110},
+  {kw:'薯片 薯条', name:'薯片', cal:530, unit:'包(50g)', uw:50, uc:265},
+  {kw:'蛋糕 奶油蛋糕', name:'蛋糕', cal:350, unit:'块(80g)', uw:80, uc:280},
+  {kw:'饼干 曲奇 苏打饼干', name:'饼干', cal:450, unit:'片(10g)', uw:10, uc:45},
+  {kw:'可乐 汽水 碳酸饮料 雪碧', name:'可乐', cal:42, unit:'罐(330ml)', uw:330, uc:139},
+  {kw:'奶茶 珍珠奶茶', name:'奶茶', cal:80, unit:'杯(500ml)', uw:500, uc:400},
+  {kw:'咖啡 拿铁 美式 卡布奇诺', name:'拿铁咖啡', cal:56, unit:'杯(350ml)', uw:350, uc:196},
+  {kw:'冰淇淋 雪糕 冰棍', name:'冰淇淋', cal:180, unit:'个(80g)', uw:80, uc:144},
+  {kw:'啤酒', name:'啤酒', cal:43, unit:'瓶(500ml)', uw:500, uc:215},
+
+  // 常见菜品
+  {kw:'番茄炒蛋 西红柿炒鸡蛋', name:'番茄炒蛋', cal:85, unit:'份(200g)', uw:200, uc:170},
+  {kw:'宫保鸡丁', name:'宫保鸡丁', cal:160, unit:'份(200g)', uw:200, uc:320},
+  {kw:'鱼香肉丝', name:'鱼香肉丝', cal:150, unit:'份(200g)', uw:200, uc:300},
+  {kw:'麻婆豆腐', name:'麻婆豆腐', cal:110, unit:'份(200g)', uw:200, uc:220},
+  {kw:'红烧肉 扣肉', name:'红烧肉', cal:300, unit:'份(150g)', uw:150, uc:450},
+  {kw:'水煮鱼 酸菜鱼', name:'水煮鱼', cal:130, unit:'份(250g)', uw:250, uc:325},
+  {kw:'火锅', name:'火锅(综合)', cal:200, unit:'顿', uw:800, uc:1600},
+  {kw:'麻辣烫', name:'麻辣烫', cal:100, unit:'碗(500g)', uw:500, uc:500},
+  {kw:'黄焖鸡 黄焖鸡米饭', name:'黄焖鸡米饭', cal:150, unit:'份(400g)', uw:400, uc:600},
+  {kw:'沙县小吃 拌面 扁肉', name:'沙县拌面', cal:180, unit:'碗(250g)', uw:250, uc:450},
+  {kw:'麻辣香锅', name:'麻辣香锅', cal:180, unit:'份(400g)', uw:400, uc:720},
+  {kw:'炸鸡 炸鸡腿 炸鸡翅', name:'炸鸡', cal:280, unit:'块(150g)', uw:150, uc:420},
+  {kw:'寿司', name:'寿司', cal:140, unit:'份(200g)', uw:200, uc:280},
+  {kw:'披萨', name:'披萨', cal:270, unit:'片(100g)', uw:100, uc:270},
+  {kw:'汉堡 汉堡包 麦当劳 肯德基', name:'汉堡', cal:250, unit:'个(200g)', uw:200, uc:500},
+  {kw:'沙拉 蔬菜沙拉 鸡胸肉沙拉', name:'蔬菜沙拉', cal:45, unit:'碗(250g)', uw:250, uc:113},
+  {kw:'三明治', name:'三明治', cal:220, unit:'个(150g)', uw:150, uc:330},
+  {kw:'炒饭 蛋炒饭 扬州炒饭', name:'蛋炒饭', cal:180, unit:'碗(250g)', uw:250, uc:450},
+  {kw:'炒面 炒粉 干炒牛河', name:'炒面', cal:170, unit:'盘(300g)', uw:300, uc:510},
+  {kw:'兰州拉面 牛肉面', name:'兰州拉面', cal:120, unit:'碗(400g)', uw:400, uc:480},
+  {kw:'螺蛳粉', name:'螺蛳粉', cal:130, unit:'碗(400g)', uw:400, uc:520},
+  {kw:'酸辣粉', name:'酸辣粉', cal:100, unit:'碗(350g)', uw:350, uc:350},
+  {kw:'烧烤 烤串 羊肉串', name:'烧烤', cal:220, unit:'顿', uw:500, uc:1100},
+  {kw:'小龙虾', name:'小龙虾', cal:90, unit:'斤(500g)', uw:500, uc:450},
+  {kw:'泡面 方便面 康师傅', name:'方便面', cal:450, unit:'包(100g)', uw:100, uc:450},
+];
+
+// ========== Storage ==========
+function load(k) { try { return JSON.parse(localStorage.getItem('fitness_'+k))||[]; } catch(e) { return []; } }
+function save(k,d) { localStorage.setItem('fitness_'+k, JSON.stringify(d)); }
+
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+  if (tab === 'dashboard') refreshDashboard();
+}
+
+// ========== Food Search ==========
+let currentFood = null;
+let currentPortion = 1;
+
+function searchFood(query) {
+  if (!query || query.trim().length === 0) {
+    document.getElementById('diet-suggestions').classList.remove('show');
+    return;
+  }
+  const q = query.trim().toLowerCase();
+  const results = FOOD_DB.filter(f => f.kw.split(/\s+/).some(k => k.includes(q) || q.includes(k)));
+  const container = document.getElementById('diet-suggestions');
+  if (results.length === 0) {
+    container.innerHTML = `<div class="suggestion-item" onclick="switchToManual('${q.replace(/'/g,"\\'")}')" style="justify-content:flex-start;gap:8px;">
+      <span>✏️</span><span style="color:var(--green-dark);font-weight:600;">手动输入「${q}」的热量</span>
+    </div>`;
+    container.classList.add('show');
+  } else {
+    container.innerHTML = results.slice(0, 8).map(f => `
+      <div class="suggestion-item" onclick="selectFood('${f.name.replace(/'/g,"\\'")}', ${f.cal}, '${f.unit.replace(/'/g,"\\'")}', ${f.uw}, ${f.uc})">
+        <span class="food-name">${f.name}</span>
+        <span class="food-cal">${f.uc}大卡/${f.unit}</span>
+      </div>
+    `).join('');
+    container.classList.add('show');
+  }
+}
+
+function selectFood(name, calPer100, unit, unitWeight, unitCal) {
+  currentFood = { name, calPer100, unit, unitWeight, unitCal };
+  currentPortion = 1;
+  document.getElementById('diet-name').value = name;
+  document.getElementById('diet-suggestions').classList.remove('show');
+
+  // Show portion selector
+  const portionGroup = document.getElementById('portion-group');
+  const portionBtns = document.getElementById('portion-btns');
+  portionGroup.style.display = 'block';
+  portionBtns.innerHTML = `
+    <button class="portion-btn active" onclick="setPortion(0.5,this)">½份</button>
+    <button class="portion-btn" onclick="setPortion(1,this)">1份(${unit})</button>
+    <button class="portion-btn" onclick="setPortion(1.5,this)">1.5份</button>
+    <button class="portion-btn" onclick="setPortion(2,this)">2份</button>
+  `;
+
+  updateDietEstimate();
+}
+
+function setPortion(p, btn) {
+  currentPortion = p;
+  document.querySelectorAll('#portion-btns .portion-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateDietEstimate();
+}
+
+function switchToManual(name) {
+  currentFood = null;
+  document.getElementById('diet-name').value = name;
+  document.getElementById('diet-suggestions').classList.remove('show');
+  document.getElementById('portion-group').style.display = 'none';
+  document.getElementById('diet-estimate').classList.remove('show');
+  document.getElementById('manual-cal-group').style.display = 'block';
+  document.getElementById('diet-cal').value = '';
+  document.getElementById('diet-cal').focus();
+}
+
+function updateDietEstimate() {
+  const estDiv = document.getElementById('diet-estimate');
+  const estCal = document.getElementById('diet-estimate-cal');
+  const manualGroup = document.getElementById('manual-cal-group');
+  const calInput = document.getElementById('diet-cal');
+
+  if (!currentFood) {
+    estDiv.classList.remove('show');
+    return;
+  }
+
+  // Auto mode: hide manual input, show estimate
+  manualGroup.style.display = 'none';
+  const cal = Math.round(currentFood.unitCal * currentPortion);
+  estCal.textContent = cal + ' 大卡';
+  calInput.value = cal;
+  estDiv.classList.add('show');
+}
+
+// Diet input handler
+document.addEventListener('DOMContentLoaded', function() {
+  const dietInput = document.getElementById('diet-name');
+  dietInput.addEventListener('input', function() {
+    currentFood = null;
+    document.getElementById('portion-group').style.display = 'none';
+    document.getElementById('diet-estimate').classList.remove('show');
+    document.getElementById('manual-cal-group').style.display = 'none';
+    searchFood(this.value);
+  });
+  dietInput.addEventListener('focus', function() {
+    if (this.value) searchFood(this.value);
+  });
+
+  // Hide suggestions on click outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.smart-input-wrap')) {
+      document.getElementById('diet-suggestions').classList.remove('show');
+    }
+  });
+});
+
+// ========== Weight ==========
+function addWeight() {
+  const date = document.getElementById('weight-date').value || todayStr();
+  const value = parseFloat(document.getElementById('weight-value').value);
+  if (!value || value < 50 || value > 200) return showToast('⚠️ 请输入合理的体重值');
+  let data = load('weights');
+  const idx = data.findIndex(w => w.date === date);
+  if (idx >= 0) data[idx].value = value;
+  else data.push({ date, value });
+  data.sort((a,b) => a.date.localeCompare(b.date));
+  save('weights', data);
+  document.getElementById('weight-value').value = '';
+  showToast('✅ 体重打卡成功！');
+  refreshWeight(); refreshDashboard();
+}
+
+function deleteWeight(date) {
+  let data = load('weights'); data = data.filter(w => w.date !== date);
+  save('weights', data); refreshWeight(); refreshDashboard();
+}
+
+function refreshWeight() {
+  const data = load('weights');
+  const list = document.getElementById('weight-list');
+  const empty = document.getElementById('weight-empty');
+  document.getElementById('weight-date').value = todayStr();
+  if (data.length === 0) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  const reversed = [...data].reverse();
+  list.innerHTML = reversed.map((w, i) => `
+    <li class="history-item">
+      <div class="info"><div class="date">${w.date}</div>
+        <div class="detail">${w.value} 斤${i < reversed.length - 1 ? (() => {
+          const prev = reversed[i+1]; const diff = (w.value - prev.value).toFixed(1);
+          if (diff < 0) return `<span style="color:var(--green)"> ↓${Math.abs(diff)}斤</span>`;
+          if (diff > 0) return `<span style="color:var(--danger)"> ↑${diff}斤</span>`;
+          return '<span style="color:var(--text-light)"> →持平</span>';
+        })() : ''}</div></div>
+      <span class="del" onclick="deleteWeight('${w.date}')">✕</span>
+    </li>`).join('');
+}
+
+// ========== Diet ==========
+function addDiet() {
+  const type = document.getElementById('diet-type').value;
+  const name = document.getElementById('diet-name').value.trim();
+  const cal = parseInt(document.getElementById('diet-cal').value);
+  const date = document.getElementById('diet-date').value || todayStr();
+  if (!name) return showToast('⚠️ 请输入或搜索食物名称');
+  if (!cal || cal <= 0) return showToast('⚠️ 请选择食物自动估算，或手动输入热量');
+  let data = load('diets');
+  data.push({ id: Date.now(), type, name, cal, date });
+  save('diets', data);
+  // Reset all
+  document.getElementById('diet-name').value = '';
+  document.getElementById('diet-cal').value = '';
+  document.getElementById('diet-estimate').classList.remove('show');
+  document.getElementById('portion-group').style.display = 'none';
+  document.getElementById('manual-cal-group').style.display = 'none';
+  currentFood = null;
+  showToast('📝 饮食记录已添加！');
+  refreshDiet(); refreshDashboard();
+}
+
+function deleteDiet(id) {
+  let data = load('diets'); data = data.filter(d => d.id !== id);
+  save('diets', data); refreshDiet(); refreshDashboard();
+}
+
+const typeLabels = {
+  breakfast: ['🌅 早餐', 'tag-breakfast'], lunch: ['☀️ 午餐', 'tag-lunch'],
+  dinner: ['🌙 晚餐', 'tag-dinner'], snack: ['🍪 加餐', 'tag-snack']
+};
+
+function refreshDiet() {
+  const data = load('diets');
+  const list = document.getElementById('diet-list');
+  const empty = document.getElementById('diet-empty');
+  document.getElementById('diet-date').value = todayStr();
+  if (data.length === 0) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  list.innerHTML = [...data].reverse().slice(0, 50).map(d => {
+    const [label, cls] = typeLabels[d.type] || ['🍽️ 餐食', ''];
+    return `<li class="history-item">
+      <div class="info"><div class="date">${d.date} <span class="tag ${cls}">${label}</span></div><div class="detail">${d.name}</div></div>
+      <div class="meta"><div class="cal">${d.cal} 大卡</div><span class="del" onclick="deleteDiet(${d.id})">✕</span></div>
+    </li>`;
+  }).join('');
+}
+
+// ========== Exercise ==========
+const exCalPer30 = { run: 250, walk: 120, hiit: 300, jump: 280, strength: 180, swim: 250, bike: 200, yoga: 120, other: 150 };
+
+function updateExEstimate() {
+  const type = document.getElementById('ex-type').value;
+  const duration = parseInt(document.getElementById('ex-duration').value) || 0;
+  const estDiv = document.getElementById('ex-estimate');
+  const estCal = document.getElementById('ex-estimate-cal');
+  if (duration <= 0) { estDiv.classList.remove('show'); return; }
+  const cal = Math.round(exCalPer30[type] * (duration / 30));
+  estCal.textContent = cal + ' 大卡';
+  estDiv.classList.add('show');
+}
+
+function addExercise() {
+  const type = document.getElementById('ex-type').value;
+  const duration = parseInt(document.getElementById('ex-duration').value);
+  const date = document.getElementById('ex-date').value || todayStr();
+  if (!duration || duration <= 0) return showToast('⚠️ 请输入运动时长');
+  const cal = Math.round(exCalPer30[type] * (duration / 30));
+  let data = load('exercises');
+  data.push({ id: Date.now(), type, duration, cal, date });
+  save('exercises', data);
+  document.getElementById('ex-duration').value = '';
+  document.getElementById('ex-estimate').classList.remove('show');
+  showToast(`🔥 运动打卡成功！约消耗 ${cal} 大卡`);
+  refreshExercise(); refreshDashboard();
+}
+
+function deleteExercise(id) {
+  let data = load('exercises'); data = data.filter(e => e.id !== id);
+  save('exercises', data); refreshExercise(); refreshDashboard();
+}
+
+const exLabels = {
+  run: ['🏃 跑步', 'tag-run'], walk: ['🚶 快走', 'tag-walk'], hiit: ['💪 HIIT', 'tag-hiit'],
+  jump: ['🪢 跳绳', 'tag-jump'], strength: ['🏋️ 力量', 'tag-strength'],
+  swim: ['🏊 游泳', 'tag-other'], bike: ['🚴 骑行', 'tag-other'],
+  yoga: ['🧘 瑜伽', 'tag-other'], other: ['🔧 其他', 'tag-other']
+};
+
+function refreshExercise() {
+  const data = load('exercises');
+  const list = document.getElementById('ex-list');
+  const empty = document.getElementById('ex-empty');
+  document.getElementById('ex-date').value = todayStr();
+  if (data.length === 0) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  list.innerHTML = [...data].reverse().slice(0, 50).map(e => {
+    const [label, cls] = exLabels[e.type] || ['🔧 运动', 'tag-other'];
+    return `<li class="history-item">
+      <div class="info"><div class="date">${e.date} <span class="tag ${cls}">${label}</span></div><div class="detail">${e.duration} 分钟</div></div>
+      <div class="meta"><div class="cal">🔥 ${e.cal} 大卡</div><span class="del" onclick="deleteExercise(${e.id})">✕</span></div>
+    </li>`;
+  }).join('');
+}
+
+// ========== Dashboard ==========
+let weightChart = null;
+
+function refreshDashboard() {
+  const weights = load('weights'), diets = load('diets'), exercises = load('exercises');
+  const currentWeight = weights.length > 0 ? weights[weights.length - 1].value : START_WEIGHT;
+  document.getElementById('dash-weight').innerHTML = currentWeight.toFixed(1) + '<span class="unit">斤</span>';
+  const lost = (START_WEIGHT - currentWeight).toFixed(1);
+  document.getElementById('dash-lost').innerHTML = Math.max(0, lost) + '<span class="unit">斤</span>';
+  const startDate = new Date(START_DATE), today = new Date();
+  const daysRemaining = Math.max(0, DAYS_TOTAL - Math.floor((today - startDate) / (1000*60*60*24)));
+  document.getElementById('dash-days').innerHTML = daysRemaining + '<span class="unit">天</span>';
+  const totalToLose = START_WEIGHT - TARGET_WEIGHT;
+  const progressPct = Math.min(100, Math.round(((START_WEIGHT - currentWeight) / totalToLose) * 100));
+  document.getElementById('progress-pct').textContent = progressPct + '%';
+  document.getElementById('progress-fill').style.width = progressPct + '%';
+
+  const todayStrVal = todayStr();
+  const calIn = diets.filter(d => d.date === todayStrVal).reduce((s, d) => s + d.cal, 0);
+  const calOut = exercises.filter(e => e.date === todayStrVal).reduce((s, e) => s + e.cal, 0);
+  document.getElementById('today-in').innerHTML = calIn + '<span class="unit">大卡</span>';
+  document.getElementById('today-out').innerHTML = calOut + '<span class="unit">大卡</span>';
+  const calPct = Math.min(100, Math.round((calIn / DAILY_CAL_TARGET) * 100));
+  document.getElementById('cal-percent').textContent = calPct + '%';
+  document.getElementById('cal-fill').style.width = calPct + '%';
+  document.getElementById('cal-fill').style.background = calPct > 100
+    ? 'linear-gradient(90deg, var(--orange), var(--danger))'
+    : 'linear-gradient(90deg, var(--green), var(--green-dark))';
+
+  drawChart(weights);
+
+  const tips = [
+    '多喝水！每天至少喝 2L 水，有助于代谢和减少饥饿感。',
+    '细嚼慢咽，每口饭嚼 20 次以上，大脑需要 20 分钟才能感受到饱。',
+    '保证 7-8 小时睡眠，睡眠不足会让饥饿素升高，更容易暴食。',
+    '蛋白质要够！每餐至少一巴掌大小的优质蛋白（鸡胸肉/鱼/豆腐/鸡蛋）。',
+    '用「一拳法」控制份量：一拳主食 + 一拳蛋白质 + 两拳蔬菜。',
+    '饿了先喝杯水，很��时候「饥饿」其实是口渴。',
+    '减少精制碳水，多吃全谷物、杂粮饭、红薯、燕麦。',
+    '饭前喝碗清汤或水，能自然减少正餐摄入量。',
+    '站着比坐着多消耗 20% 热量，多站多走，积少成多。',
+    '不要空腹去超市！饿了会不自觉地买更多高热量食物。'
+  ];
+  document.getElementById('daily-tip').textContent = tips[Math.floor((today - startDate) / (1000*60*60*24)) % tips.length];
+  document.getElementById('chart-empty-msg').style.display = weights.length === 0 ? 'block' : 'none';
+}
+
+function drawChart(weights) {
+  const ctx = document.getElementById('weightChart').getContext('2d');
+  if (weightChart) weightChart.destroy();
+  const allLabels = weights.length > 0 ? weights.map(w => w.date) : [START_DATE];
+  const allValues = weights.length > 0 ? weights.map(w => w.value) : [START_WEIGHT];
+  weightChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [{
+        label: '体重（斤）', data: allValues,
+        borderColor: '#4CAF50', backgroundColor: 'rgba(76,175,80,0.1)',
+        fill: true, tension: 0.3, pointRadius: 4,
+        pointBackgroundColor: '#4CAF50', pointBorderColor: 'white', pointBorderWidth: 2, pointHoverRadius: 6,
+      }, {
+        label: '目标 120斤', data: Array(allLabels.length).fill(TARGET_WEIGHT),
+        borderColor: '#FF9800', borderDash: [5,5], borderWidth: 1.5, pointRadius: 0, fill: false,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: true, position: 'bottom', labels: { boxWidth: 12, padding: 15, font: { size: 12 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10 }, maxTicksLimit: 7 } },
+        y: { min: 115, max: 140, ticks: { font: { size: 10 }, callback: v => v + '斤' } }
+      }
+    }
+  });
+}
+
+
+// ========== Backup / Restore ==========
+function exportData() {
+  const data = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('fitness_')) data[key] = localStorage.getItem(key);
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '减脂打卡_备份_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  showToast('✅ 数据已导出！保存到手机文件里');
+}
+
+function importData() {
+  document.getElementById('import-file').click();
+}
+
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      const data = JSON.parse(ev.target.result);
+      let count = 0;
+      for (const [key, value] of Object.entries(data)) {
+        localStorage.setItem(key, value);
+        count++;
+      }
+      showToast(`✅ 已恢复 ${count} 条数据！刷新页面即可`);
+      setTimeout(() => location.reload(), 1500);
+    } catch (err) {
+      showToast('⚠️ 文件格式错误');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+function init() { refreshDashboard(); refreshWeight(); refreshDiet(); refreshExercise(); }
+init();
+</script>
+</body>
+</html>

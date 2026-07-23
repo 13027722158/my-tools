@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="电子衣橱">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#D4A0A0">
+<link rel="manifest" href="manifest.json?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png?v=2">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png?v=2">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="shortcut icon" href="favicon.png?v=2">
+<title>电子衣橱 - 智能搭配</title>
+<script src="https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.0.0/dist/transformers.min.js"></script>
+<style>
+:root {
+  --primary: #D4A0A0; --primary-dark: #B87878; --primary-light: #F5E6E6;
+  --bg: #FAF7F7; --card: #FFFFFF; --text: #3D2C2C; --text-light: #8B7B7B;
+  --border: #E8DEDE; --danger: #E07070; --accent: #C4908A;
+  --radius: 14px; --shadow: 0 2px 12px rgba(0,0,0,0.05); --nav-height: 72px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased;
+  display: flex; justify-content: center; min-height: 100vh;
+}
+.app { width: 100%; max-width: 480px; min-height: 100vh; padding-bottom: calc(var(--nav-height) + 20px); position: relative; }
+
+.header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 18px 20px 20px; text-align: center; position: sticky; top: 0; z-index: 10; border-radius: 0 0 22px 22px; }
+.header h1 { font-size: 20px; font-weight: 700; }
+.header .subtitle { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+.tab-content { display: none; padding: 14px 14px 0; }
+.tab-content.active { display: block; }
+
+.card { background: var(--card); border-radius: var(--radius); padding: 14px; margin-bottom: 12px; box-shadow: var(--shadow); }
+.card-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+
+/* Category filter bar */
+.cat-bar { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.cat-bar::-webkit-scrollbar { display: none; }
+.cat-chip {
+  flex-shrink: 0; padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--border);
+  background: white; font-size: 13px; cursor: pointer; white-space: nowrap;
+  font-family: inherit; transition: all 0.2s; -webkit-tap-highlight-color: transparent;
+}
+.cat-chip.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 600; }
+.cat-chip:active { transform: scale(0.95); }
+
+/* Wardrobe grid */
+.wardrobe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cloth-card {
+  background: white; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); cursor: pointer; transition: transform 0.2s;
+}
+.cloth-card:active { transform: scale(0.97); }
+.cloth-card .img-wrap {
+  width: 100%; height: 160px; background: #f8f5f5; display: flex;
+  align-items: center; justify-content: center; overflow: hidden;
+}
+.cloth-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.cloth-card .img-wrap .placeholder { font-size: 48px; opacity: 0.4; }
+.cloth-card .info { padding: 10px 12px; }
+.cloth-card .info .name { font-size: 13px; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cloth-card .info .meta { font-size: 11px; color: var(--text-light); }
+
+/* Add clothing */
+.add-card { background: var(--card); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
+.photo-area {
+  width: 100%; height: 200px; border: 2px dashed var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; cursor: pointer; transition: border-color 0.2s; margin-bottom: 14px;
+  overflow: hidden; position: relative;
+}
+.photo-area:active { border-color: var(--primary); background: var(--primary-light); }
+.photo-area .icon { font-size: 40px; opacity: 0.5; }
+.photo-area .text { font-size: 14px; color: var(--text-light); }
+.photo-area img { width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; }
+.photo-area.has-photo { border-style: solid; border-color: var(--primary); }
+
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-light); margin-bottom: 4px; }
+.form-group input, .form-group select {
+  width: 100%; padding: 11px 13px; border: 1.5px solid var(--border); border-radius: 10px;
+  font-size: 14px; font-family: inherit; background: var(--bg); transition: border-color 0.2s; -webkit-appearance: none;
+}
+.form-group input:focus, .form-group select:focus { outline: none; border-color: var(--primary); background: white; }
+
+.season-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.season-chip {
+  padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border);
+  background: white; font-size: 12px; cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.season-chip.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 600; }
+
+.btn { width: 100%; padding: 13px; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; transition: all 0.2s; -webkit-tap-highlight-color: transparent; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; }
+.btn-primary:active { transform: scale(0.98); opacity: 0.9; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-outline { background: white; border: 1.5px solid var(--primary); color: var(--primary); }
+.btn-sm { width: auto; padding: 7px 14px; font-size: 12px; border-radius: 8px; }
+
+/* Styling canvas */
+.styling-area {
+  width: 100%; min-height: 420px; background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+  margin-bottom: 10px;
+  background-image: radial-gradient(circle, #f0e8e8 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.styling-area .empty-hint {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center; color: var(--text-light); font-size: 14px; pointer-events: none;
+}
+.styling-area .empty-hint .icon { font-size: 40px; display: block; margin-bottom: 8px; }
+.styling-item {
+  position: absolute; cursor: move; touch-action: none; user-select: none;
+  border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: box-shadow 0.2s;
+}
+.styling-item.dragging { box-shadow: 0 6px 20px rgba(0,0,0,0.25); z-index: 50; }
+.styling-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.styling-item .remove-btn {
+  position: absolute; top: 2px; right: 2px; width: 22px; height: 22px;
+  background: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%;
+  font-size: 12px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 5;
+}
+
+/* Pick bar */
+.pick-bar { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.pick-bar::-webkit-scrollbar { display: none; }
+.pick-item {
+  flex-shrink: 0; width: 70px; text-align: center; cursor: pointer;
+  border-radius: 10px; padding: 6px; transition: background 0.2s;
+}
+.pick-item:active { background: var(--primary-light); }
+.pick-item .thumb {
+  width: 58px; height: 58px; border-radius: 10px; overflow: hidden;
+  margin: 0 auto 4px; background: #f5f2f2;
+}
+.pick-item .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.pick-item .thumb .placeholder { font-size: 24px; line-height: 58px; text-align: center; opacity: 0.4; }
+.pick-item .label { font-size: 10px; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Outfit list */
+.outfit-card { background: white; border-radius: var(--radius); padding: 12px; margin-bottom: 10px; box-shadow: var(--shadow); cursor: pointer; }
+.outfit-card:active { opacity: 0.8; }
+.outfit-preview { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.outfit-preview img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; background: #f5f2f2; }
+.outfit-meta { display: flex; justify-content: space-between; align-items: center; }
+.outfit-meta .name { font-size: 14px; font-weight: 600; }
+.outfit-meta .date { font-size: 11px; color: var(--text-light); }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5);
+  z-index: 200; display: flex; align-items: flex-end; justify-content: center;
+}
+.modal { background: white; border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; padding: 20px; max-height: 80vh; overflow-y: auto; animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.modal .close { float: right; background: none; border: none; font-size: 24px; cursor: pointer; padding: 4px 8px; color: var(--text-light); }
+.modal img { width: 100%; border-radius: 10px; margin: 10px 0; max-height: 300px; object-fit: contain; background: #f5f2f2; }
+.modal .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.modal .detail-row .label { color: var(--text-light); }
+
+/* Bottom nav */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px; background: white; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-around; padding: 8px 0 env(safe-area-inset-bottom, 8px); z-index: 100;
+}
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 5px 10px; font-size: 10px; color: var(--text-light); cursor: pointer; transition: color 0.2s; -webkit-tap-highlight-color: transparent; border: none; background: none; font-family: inherit; }
+.nav-item .icon { font-size: 22px; }
+.nav-item.active { color: var(--primary); font-weight: 600; }
+
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 24px; border-radius: 20px; font-size: 14px; z-index: 300; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+.toast.show { opacity: 1; }
+
+.empty-state { text-align: center; padding: 40px 20px; color: var(--text-light); }
+.empty-state .icon { font-size: 48px; display: block; margin-bottom: 12px; opacity: 0.5; }
+.empty-state .text { font-size: 14px; }
+
+input[type="date"] { color-scheme: light; }
+
+/* AI cutout */
+.cutout-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 10px; margin-top: 10px; border: 1.5px dashed var(--primary);
+  border-radius: 10px; background: var(--primary-light); color: var(--primary-dark);
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.cutout-btn:active { transform: scale(0.98); }
+.cutout-btn:disabled { opacity: 0.5; cursor: wait; }
+.cutout-btn.done { border-style: solid; background: #E8F5E9; color: #2E7D32; border-color: #4CAF50; }
+.loading-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
+  z-index: 400; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
+}
+.loading-overlay.show { display: flex; }
+.loading-overlay .spinner {
+  width: 48px; height: 48px; border: 4px solid rgba(255,255,255,0.3);
+  border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-overlay .text { color: white; font-size: 14px; }
+
+/* Fitting room */
+.fitting-area {
+  width: 100%; min-height: 500px; background: white; border-radius: var(--radius);
+  box-shadow: var(--shadow); position: relative; overflow: hidden; margin-bottom: 10px;
+}
+.fitting-area .body-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain;
+  pointer-events: none;
+}
+.fitting-area .empty-fitting {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center; color: var(--text-light); font-size: 14px; pointer-events: none; width: 80%;
+}
+.fitting-area .empty-fitting .icon { font-size: 48px; display: block; margin-bottom: 10px; }
+.fitting-item {
+  position: absolute; cursor: move; touch-action: none; user-select: none;
+  z-index: 10;
+}
+.fitting-item img { display: block; pointer-events: none; }
+.fitting-item .ctrl-bar {
+  position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 4px; z-index: 20;
+}
+.fitting-item .ctrl-btn {
+  width: 28px; height: 28px; border-radius: 50%; border: none; background: rgba(0,0,0,0.5);
+  color: white; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.fitting-item .ctrl-btn:active { background: rgba(0,0,0,0.7); }
+
+.upload-body-area {
+  width: 100%; height: 120px; border: 2px dashed var(--border); border-radius: var(--radius);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; cursor: pointer; margin-bottom: 12px; transition: border-color 0.2s; position: relative; overflow: hidden;
+}
+.upload-body-area:active { border-color: var(--primary); background: var(--primary-light); }
+.upload-body-area .icon { font-size: 32px; opacity: 0.5; }
+.upload-body-area .text { font-size: 13px; color: var(--text-light); }
+.upload-body-area img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
+
+/* Backup buttons */
+.backup-bar { display:flex; gap:8px; padding:8px 14px 14px; }
+.backup-btn { flex:1; padding:8px; border:1.5px solid var(--border); border-radius:10px; background:white; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; display:flex; align-items:center; justify-content:center; gap:4px; }
+.backup-btn:active { background:var(--bg); }
+.backup-btn.export { border-color:var(--primary); color:var(--primary); }
+.backup-btn.import { border-color:var(--accent); color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <h1>👗 电子衣橱</h1>
+    <div class="subtitle">拍照录入 · 智能搭配</div>
+  </div>
+
+  
+  <div class="backup-bar">
+    <button class="backup-btn export" onclick="exportData()">💾 备份数据</button>
+    <button class="backup-btn import" onclick="importData()">📥 恢复数据</button>
+    <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
+  </div>
+
+  <!-- ============ TAB: WARDROBE ============ -->
+  <div class="tab-content active" id="tab-wardrobe">
+    <div class="cat-bar" id="cat-bar"></div>
+    <div class="wardrobe-grid" id="wardrobe-grid"></div>
+    <div class="empty-state" id="wardrobe-empty">
+      <span class="icon">👗</span>
+      <div class="text">衣橱还是空的<br>去「添加」拍照录入你的衣物吧！</div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: ADD ============ -->
+  <div class="tab-content" id="tab-add">
+    <div class="add-card">
+      <div class="card-title">📸 添加衣物</div>
+      <div class="photo-area" id="photo-area" onclick="document.getElementById('photo-input').click()">
+        <span class="icon">📷</span>
+        <span class="text">点击拍照或选择照片</span>
+        <img id="photo-preview" style="display:none">
+      </div>
+      <input type="file" id="photo-input" accept="image/*" capture="environment" style="display:none" onchange="handlePhoto(event)">
+      <div style="display:flex;gap:8px;margin-top:10px;">
+        <button class="cutout-btn" id="cutout-btn" onclick="removeBackground()" disabled style="flex:2">✨ AI智能抠图</button>
+        <button class="cutout-btn" id="manual-btn" onclick="openManualEraser()" disabled style="flex:1;border-color:var(--accent);background:white;color:var(--accent);">🖌️ 手动擦除</button>
+      </div>
+      <div class="form-group"><label>名称</label><input type="text" id="add-name" placeholder="例如：黑色连衣裙"></div>
+      <div class="form-group"><label>分类</label>
+        <select id="add-category"></select>
+      </div>
+      <div class="form-group"><label>颜色</label><input type="text" id="add-color" placeholder="例如：黑色、米白色"></div>
+      <div class="form-group"><label>季节</label>
+        <div class="season-row">
+          <button class="season-chip active" data-season="all" onclick="setSeason('all',this)">🌍 四季</button>
+          <button class="season-chip" data-season="spring" onclick="setSeason('spring',this)">🌸 春</button>
+          <button class="season-chip" data-season="summer" onclick="setSeason('summer',this)">☀️ 夏</button>
+          <button class="season-chip" data-season="autumn" onclick="setSeason('autumn',this)">🍂 秋</button>
+          <button class="season-chip" data-season="winter" onclick="setSeason('winter',this)">❄️ 冬</button>
+        </div>
+      </div>
+      <div class="form-group"><label>备注</label><input type="text" id="add-note" placeholder="品牌、购买时间等（可选）"></div>
+      <button class="btn btn-primary" onclick="saveCloth()">💾 保存到衣橱</button>
+    </div>
+  </div>
+
+  <!-- ============ TAB: STYLING ============ -->
+  <div class="tab-content" id="tab-styling">
+    <div class="card" style="padding:10px">
+      <div class="cat-bar" id="styling-cat-bar"></div>
+    </div>
+    <div class="pick-bar" id="pick-bar"></div>
+    <div class="styling-area" id="styling-area">
+      <div class="empty-hint" id="styling-hint">
+        <span class="icon">👆</span>
+        <span>从上方选择衣物添加到画布<br>拖拽调整位置</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+      <button class="btn btn-outline btn-sm" onclick="clearStyling()" style="flex:1">🗑️ 清空画布</button>
+      <button class="btn btn-primary btn-sm" onclick="saveOutfit()" style="flex:1">💾 保存搭配</button>
+    </div>
+  </div>
+
+  <!-- ============ TAB: OUTFITS ============ -->
+  <div class="tab-content" id="tab-outfits">
+    <div id="outfits-list"></div>
+    <div class="empty-state" id="outfits-empty">
+      <span class="icon">🎨</span>
+      <div class="text">还没有搭配方案<br>去「搭配间」创建你的第一套搭配吧！</div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: FITTING ROOM ============ -->
+  <div class="tab-content" id="tab-fitting">
+    <div class="card" style="padding:12px">
+      <div class="card-title">🧍 设置试穿模特</div>
+      <div class="upload-body-area" id="body-upload" onclick="document.getElementById('body-input').click()">
+        <span class="icon">🧍</span>
+        <span class="text">上传你的全身照作为试穿模特</span>
+        <img id="body-preview" style="display:none">
+      </div>
+      <input type="file" id="body-input" accept="image/*" style="display:none" onchange="handleBodyPhoto(event)">
+    </div>
+    <div class="card" style="padding:10px">
+      <div class="cat-bar" id="fitting-cat-bar"></div>
+    </div>
+    <div class="pick-bar" id="fitting-pick-bar"></div>
+    <div class="fitting-area" id="fitting-area">
+      <div class="empty-fitting" id="fitting-empty">
+        <span class="icon">🧍‍♀️</span>
+        <span>先上传全身照，再从上方选择衣物试穿<br>可拖拽移动 · 可缩放大小</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px;">
+      <button class="btn btn-outline btn-sm" onclick="clearFitting()" style="flex:1">🗑️ 清空</button>
+      <button class="btn btn-primary btn-sm" onclick="saveFittingScreenshot()" style="flex:1">📸 保存试穿图</button>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <button class="nav-item active" data-tab="wardrobe" onclick="switchTab('wardrobe')"><span class="icon">👗</span>衣橱</button>
+    <button class="nav-item" data-tab="add" onclick="switchTab('add')"><span class="icon">📸</span>添加</button>
+    <button class="nav-item" data-tab="fitting" onclick="switchTab('fitting')"><span class="icon">🧍</span>试穿</button>
+    <button class="nav-item" data-tab="styling" onclick="switchTab('styling')"><span class="icon">🎨</span>搭配</button>
+    <button class="nav-item" data-tab="outfits" onclick="switchTab('outfits')"><span class="icon">💾</span>方案</button>
+  </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="modal-overlay" id="modal-overlay" style="display:none" onclick="closeModal(event)">
+  <div class="modal" id="modal-content" onclick="event.stopPropagation()"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Loading overlay for AI processing -->
+<div class="loading-overlay" id="loading-overlay">
+  <div class="spinner"></div>
+  <div class="text" id="loading-text">AI正在抠图，请稍等...</div>
+</div>
+
+<script>
+// ========== Data ==========
+const CATEGORIES = [
+  {id:'top',name:'👕 上衣',icon:'👕'},{id:'bottom',name:'👖 裤子',icon:'👖'},
+  {id:'dress',name:'👗 裙子',icon:'👗'},{id:'outerwear',name:'🧥 外套',icon:'🧥'},
+  {id:'shoes',name:'👠 鞋子',icon:'👠'},{id:'bag',name:'👜 包包',icon:'👜'},
+  {id:'earrings',name:'💎 耳钉',icon:'💎'},{id:'necklace',name:'📿 项链',icon:'📿'},
+  {id:'bracelet',name:'💫 手链',icon:'💫'},{id:'hat',name:'🎩 帽子',icon:'🎩'},
+  {id:'scarf',name:'🧣 围巾',icon:'🧣'},{id:'glasses',name:'👓 眼镜',icon:'👓'},
+  {id:'other',name:'📦 其他',icon:'📦'}
+];
+
+// ========== IndexedDB ==========
+const DB_NAME = 'ClosetDB', DB_VER = 1;
+let db;
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VER);
+    req.onupgradeneeded = e => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains('clothes')) d.createObjectStore('clothes', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('outfits')) d.createObjectStore('outfits', { keyPath: 'id' });
+    };
+    req.onsuccess = e => { db = e.target.result; resolve(db); };
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function dbPut(storeName, data) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(storeName, 'readwrite');
+    tx.objectStore(storeName).put(data);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+function dbGetAll(storeName) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(storeName, 'readonly');
+    const req = tx.objectStore(storeName).getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function dbDelete(storeName, id) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(storeName, 'readwrite');
+    tx.objectStore(storeName).delete(id);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+// ========== Toast ==========
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ========== Tab ==========
+let currentTab = 'wardrobe';
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+  if (tab === 'wardrobe') refreshWardrobe();
+  if (tab === 'styling') refreshStyling();
+  if (tab === 'fitting') refreshFitting();
+  if (tab === 'outfits') refreshOutfits();
+}
+
+// ========== Modal ==========
+function showModal(html) {
+  document.getElementById('modal-content').innerHTML = html;
+  document.getElementById('modal-overlay').style.display = 'flex';
+}
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal-overlay')) return;
+  document.getElementById('modal-overlay').style.display = 'none';
+}
+
+// ========== Photo ==========
+let photoData = null;
+function handlePhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    // Resize large images
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const maxW = 600, maxH = 600;
+      let w = img.width, h = img.height;
+      if (w > maxW || h > maxH) {
+        const ratio = Math.min(maxW/w, maxH/h);
+        w = Math.round(w * ratio); h = Math.round(h * ratio);
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      photoData = canvas.toDataURL('image/jpeg', 0.8);
+      const preview = document.getElementById('photo-preview');
+      preview.src = photoData; preview.style.display = 'block';
+      document.getElementById('photo-area').classList.add('has-photo');
+      // Enable cutout buttons
+      const cutoutBtn = document.getElementById('cutout-btn');
+      const manualBtn = document.getElementById('manual-btn');
+      cutoutBtn.disabled = false;
+      manualBtn.disabled = false;
+      cutoutBtn.classList.remove('done');
+      cutoutBtn.innerHTML = '✨ AI智能抠图';
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ========== AI Background Removal ==========
+let bgRemoverModel = null;
+let isCutout = false;
+
+async function removeBackground() {
+  if (!photoData) return;
+  const btn = document.getElementById('cutout-btn');
+  const overlay = document.getElementById('loading-overlay');
+  const loadingText = document.getElementById('loading-text');
+
+  btn.disabled = true;
+  overlay.classList.add('show');
+
+  try {
+    if (!bgRemoverModel) {
+      loadingText.textContent = '正在加载AI抠图模型 RMBG-1.4（首次约20秒）...';
+      const { AutoModel, RawImage } = window.transformers;
+      
+      bgRemoverModel = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
+        config: { model_type: 'custom' },
+        progress_callback: (data) => {
+          if (data.status === 'progress') {
+            loadingText.textContent = `下载模型: ${Math.round(data.progress)}%`;
+          } else if (data.status === 'ready') {
+            loadingText.textContent = '模型已加载，正在抠图...';
+          }
+        }
+      });
+    }
+
+    loadingText.textContent = 'AI正在抠图，请稍等...';
+    const { RawImage, PreTrainedModel } = window.transformers;
+    
+    // Load image
+    const image = await RawImage.fromURL(photoData);
+    
+    // Preprocess: resize to 1024x1024, normalize
+    const { Tensor } = window.transformers;
+    const processedImage = image.resize(1024, 1024);
+    
+    // Get pixel data and normalize
+    const pixelData = processedImage.data;
+    const inputData = new Float32Array(1024 * 1024 * 3);
+    for (let i = 0; i < pixelData.length; i += 4) {
+      inputData[i / 4 * 3] = pixelData[i] / 255.0;       // R
+      inputData[i / 4 * 3 + 1] = pixelData[i + 1] / 255.0; // G
+      inputData[i / 4 * 3 + 2] = pixelData[i + 2] / 255.0; // B
+    }
+    
+    const inputTensor = new Tensor('float32', inputData, [1, 3, 1024, 1024]);
+    
+    // Run inference
+    const { output } = await bgRemoverModel({ input: inputTensor });
+    
+    // Get mask from output
+    const maskData = output.data;
+    const maskWidth = output.dims[output.dims.length - 2];
+    const maskHeight = output.dims[output.dims.length - 1];
+    
+    // Create mask canvas
+    const maskCanvas = document.createElement('canvas');
+    maskCanvas.width = maskWidth;
+    maskCanvas.height = maskHeight;
+    const maskCtx = maskCanvas.getContext('2d');
+    const maskImageData = maskCtx.createImageData(maskWidth, maskHeight);
+    
+    for (let i = 0; i < maskWidth * maskHeight; i++) {
+      const alpha = Math.round(maskData[i] * 255);
+      maskImageData.data[i * 4] = alpha;
+      maskImageData.data[i * 4 + 1] = alpha;
+      maskImageData.data[i * 4 + 2] = alpha;
+      maskImageData.data[i * 4 + 3] = 255;
+    }
+    maskCtx.putImageData(maskImageData, 0, 0);
+    
+    // Apply mask to original image
+    const origImg = new Image();
+    origImg.onload = function() {
+      const resultCanvas = document.createElement('canvas');
+      const maxW = 600, maxH = 600;
+      let w = origImg.width, h = origImg.height;
+      if (w > maxW || h > maxH) {
+        const ratio = Math.min(maxW/w, maxH/h);
+        w = Math.round(w * ratio); h = Math.round(h * ratio);
+      }
+      resultCanvas.width = w;
+      resultCanvas.height = h;
+      const ctx = resultCanvas.getContext('2d');
+      
+      // Draw original image
+      ctx.drawImage(origImg, 0, 0, w, h);
+      
+      // Draw mask scaled to image size, use destination-in to keep only masked area
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = w;
+      tempCanvas.height = h;
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCtx.drawImage(maskCanvas, 0, 0, w, h);
+      
+      // Use mask as alpha channel
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(tempCanvas, 0, 0);
+      
+      photoData = resultCanvas.toDataURL('image/png');
+      document.getElementById('photo-preview').src = photoData;
+      isCutout = true;
+      btn.classList.add('done');
+      btn.innerHTML = '✅ 已抠图（透明背景）';
+      btn.disabled = false;
+      overlay.classList.remove('show');
+      toast('✅ 抠图完成！背景已去除');
+    };
+    origImg.src = photoData;
+  } catch (err) {
+    console.error('Cutout error:', err);
+    overlay.classList.remove('show');
+    btn.disabled = false;
+    btn.innerHTML = '✨ AI抠图失败，点此重试';
+    toast('⚠️ 抠图失败，请用纯色背景重拍，或使用手动擦除');
+  }
+}
+
+// ========== Manual Background Eraser ==========
+function openManualEraser() {
+  if (!photoData) return toast('⚠️ 请先拍照');
+  const modal = document.getElementById('modal-overlay');
+  const content = document.getElementById('modal-content');
+  
+  content.innerHTML = `
+    <button class="close" onclick="closeModal()">✕</button>
+    <h3 style="margin-top:8px">🖌️ 手动擦除背景</h3>
+    <p style="font-size:13px;color:var(--text-light);margin:8px 0;">用手指在背景区域涂抹擦除</p>
+    <div style="position:relative;width:100%;margin-bottom:12px;">
+      <canvas id="eraser-canvas" style="width:100%;border-radius:10px;background:#f0f0f0;touch-action:none;"></canvas>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
+      <label style="font-size:12px;color:var(--text-light);">笔刷大小:</label>
+      <input type="range" id="brush-size" min="10" max="80" value="30" style="flex:1;">
+      <span id="brush-size-val" style="font-size:12px;">30</span>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <button class="btn btn-outline btn-sm" onclick="resetEraser()" style="flex:1">↩️ 重置</button>
+      <button class="btn btn-primary btn-sm" onclick="confirmEraser()" style="flex:1">✅ 确认</button>
+    </div>
+  `;
+  modal.style.display = 'flex';
+  
+  // Setup canvas
+  setTimeout(() => {
+    const canvas = document.getElementById('eraser-canvas');
+    const img = new Image();
+    img.onload = function() {
+      const maxW = 350;
+      const ratio = maxW / img.width;
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.style.height = (img.height * ratio) + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      let drawing = false;
+      let lastX, lastY;
+      
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const scale = canvas.width / rect.width;
+        if (e.touches) {
+          return { x: (e.touches[0].clientX - rect.left) * scale, y: (e.touches[0].clientY - rect.top) * scale };
+        }
+        return { x: (e.clientX - rect.left) * scale, y: (e.clientY - rect.top) * scale };
+      }
+      
+      function startDraw(e) {
+        drawing = true;
+        const pos = getPos(e);
+        lastX = pos.x; lastY = pos.y;
+        draw(e);
+        e.preventDefault();
+      }
+      
+      function draw(e) {
+        if (!drawing) return;
+        const pos = getPos(e);
+        const ctx = canvas.getContext('2d');
+        const size = parseInt(document.getElementById('brush-size').value);
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.lineWidth = size * (canvas.width / canvas.getBoundingClientRect().width);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        lastX = pos.x; lastY = pos.y;
+        e.preventDefault();
+      }
+      
+      function stopDraw() { drawing = false; }
+      
+      canvas.addEventListener('touchstart', startDraw);
+      canvas.addEventListener('touchmove', draw);
+      canvas.addEventListener('touchend', stopDraw);
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('mouseleave', stopDraw);
+    };
+    img.src = photoData;
+    
+    document.getElementById('brush-size').addEventListener('input', function() {
+      document.getElementById('brush-size-val').textContent = this.value;
+    });
+  }, 100);
+}
+
+function resetEraser() {
+  const canvas = document.getElementById('eraser-canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.globalCompositeOperation = 'source-over';
+  const img = new Image();
+  img.onload = function() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = photoData;
+}
+
+function confirmEraser() {
+  const canvas = document.getElementById('eraser-canvas');
+  photoData = canvas.toDataURL('image/png');
+  document.getElementById('photo-preview').src = photoData;
+  isCutout = true;
+  const btn = document.getElementById('cutout-btn');
+  btn.classList.add('done');
+  btn.innerHTML = '✅ 已手动擦除背景';
+  closeModal();
+  toast('✅ 手动擦除完成！');
+}
+
+// ========== Season ==========
+let selectedSeason = 'all';
+function setSeason(s, btn) {
+  selectedSeason = s;
+  document.querySelectorAll('#tab-add .season-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ========== Wardrobe ==========
+let wardrobeFilter = 'all';
+let allClothes = [];
+
+async function refreshWardrobe() {
+  allClothes = await dbGetAll('clothes');
+  allClothes.sort((a,b) => b.createdAt - a.createdAt);
+  renderCatBar();
+  renderWardrobeGrid();
+}
+
+function renderCatBar() {
+  const bar = document.getElementById('cat-bar');
+  bar.innerHTML = [
+    {id:'all',name:'🔍 全部'},
+    ...CATEGORIES.map(c => ({id:c.id, name:c.icon+' '+c.name.slice(2)}))
+  ].map(c => `<button class="cat-chip${wardrobeFilter===c.id?' active':''}" onclick="filterWardrobe('${c.id}')">${c.name}</button>`).join('');
+}
+
+function filterWardrobe(catId) {
+  wardrobeFilter = catId;
+  renderCatBar();
+  renderWardrobeGrid();
+}
+
+function renderWardrobeGrid() {
+  const grid = document.getElementById('wardrobe-grid');
+  const empty = document.getElementById('wardrobe-empty');
+  const filtered = wardrobeFilter === 'all' ? allClothes : allClothes.filter(c => c.category === wardrobeFilter);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(c => `
+    <div class="cloth-card" onclick="viewCloth(${c.id})">
+      <div class="img-wrap">
+        ${c.image ? `<img src="${c.image}" alt="${c.name}">` : `<span class="placeholder">${CATEGORIES.find(cat=>cat.id===c.category)?.icon||'👗'}</span>`}
+      </div>
+      <div class="info">
+        <div class="name">${c.name}</div>
+        <div class="meta">${CATEGORIES.find(cat=>cat.id===c.category)?.name||c.category}${c.color?' · '+c.color:''}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function viewCloth(id) {
+  const c = allClothes.find(cl => cl.id === id);
+  if (!c) return;
+  const cat = CATEGORIES.find(cat => cat.id === c.category);
+  showModal(`
+    <button class="close" onclick="closeModal()">✕</button>
+    <h3 style="margin-top:8px">${c.name}</h3>
+    ${c.image ? `<img src="${c.image}" alt="${c.name}">` : ''}
+    <div class="detail-row"><span class="label">分类</span><span>${cat?.name||c.category}</span></div>
+    ${c.color ? `<div class="detail-row"><span class="label">颜色</span><span>${c.color}</span></div>` : ''}
+    <div class="detail-row"><span class="label">季节</span><span>${({spring:'🌸 春',summer:'☀️ 夏',autumn:'🍂 秋',winter:'❄️ 冬',all:'🌍 四季'})[c.season]||'四季'}</span></div>
+    ${c.note ? `<div class="detail-row"><span class="label">备注</span><span>${c.note}</span></div>` : ''}
+    <div style="display:flex;gap:8px;margin-top:14px">
+      <button class="btn btn-danger btn-sm" onclick="deleteCloth(${c.id})" style="flex:1">🗑️ 删除</button>
+    </div>
+  `);
+}
+
+async function deleteCloth(id) {
+  if (!confirm('确定删除这件衣物吗？')) return;
+  await dbDelete('clothes', id);
+  closeModal();
+  toast('已删除');
+  refreshWardrobe();
+}
+
+// ========== Add Cloth ==========
+async function saveCloth() {
+  const name = document.getElementById('add-name').value.trim();
+  const category = document.getElementById('add-category').value;
+  const color = document.getElementById('add-color').value.trim();
+  const note = document.getElementById('add-note').value.trim();
+  if (!name) return toast('⚠️ 请输入名称');
+  if (!photoData) return toast('⚠️ 请拍照或选择照片');
+
+  const cloth = {
+    id: Date.now(), name, category, color, season: selectedSeason, note,
+    image: photoData, createdAt: Date.now()
+  };
+  await dbPut('clothes', cloth);
+  // Reset
+  document.getElementById('add-name').value = '';
+  document.getElementById('add-color').value = '';
+  document.getElementById('add-note').value = '';
+  document.getElementById('photo-preview').style.display = 'none';
+  document.getElementById('photo-area').classList.remove('has-photo');
+  document.getElementById('photo-input').value = '';
+  photoData = null;
+  isCutout = false;
+  document.getElementById('cutout-btn').disabled = true;
+  document.getElementById('cutout-btn').classList.remove('done');
+  document.getElementById('cutout-btn').innerHTML = '✨ AI智能抠图';
+  document.getElementById('manual-btn').disabled = true;
+  selectedSeason = 'all';
+  document.querySelectorAll('#tab-add .season-chip').forEach(b => b.classList.remove('active'));
+  document.querySelector('#tab-add .season-chip[data-season="all"]').classList.add('active');
+  toast('✅ 已保存到衣橱！');
+  refreshWardrobe();
+}
+
+// ========== Styling ==========
+let stylingFilter = 'all';
+let stylingItems = []; // {id, clothId, x, y, el}
+let nextStylingZ = 1;
+
+function refreshStyling() {
+  renderStylingCatBar();
+  renderPickBar();
+}
+
+function renderStylingCatBar() {
+  const bar = document.getElementById('styling-cat-bar');
+  bar.innerHTML = [
+    {id:'all',name:'🔍 全部'},
+    ...CATEGORIES.map(c => ({id:c.id, name:c.icon+' '+c.name.slice(2)}))
+  ].map(c => `<button class="cat-chip${stylingFilter===c.id?' active':''}" onclick="filterStyling('${c.id}')">${c.name}</button>`).join('');
+}
+
+async function filterStyling(catId) {
+  stylingFilter = catId;
+  renderStylingCatBar();
+  renderPickBar();
+}
+
+async function renderPickBar() {
+  const bar = document.getElementById('pick-bar');
+  const clothes = await dbGetAll('clothes');
+  const filtered = stylingFilter === 'all' ? clothes : clothes.filter(c => c.category === stylingFilter);
+  filtered.sort((a,b) => b.createdAt - a.createdAt);
+
+  if (filtered.length === 0) {
+    bar.innerHTML = '<div style="font-size:13px;color:var(--text-light);padding:10px;">这个分类还没有衣物，先去添加吧~</div>';
+    return;
+  }
+
+  bar.innerHTML = filtered.map(c => `
+    <div class="pick-item" onclick="addToStyling(${c.id})">
+      <div class="thumb">
+        ${c.image ? `<img src="${c.image}" alt="${c.name}">` : `<div class="placeholder">${CATEGORIES.find(cat=>cat.id===c.category)?.icon||'👗'}</div>`}
+      </div>
+      <div class="label">${c.name}</div>
+    </div>
+  `).join('');
+}
+
+async function addToStyling(clothId) {
+  const clothes = await dbGetAll('clothes');
+  const cloth = clothes.find(c => c.id === clothId);
+  if (!cloth || !cloth.image) return;
+
+  const area = document.getElementById('styling-area');
+  document.getElementById('styling-hint').style.display = 'none';
+
+  const el = document.createElement('div');
+  el.className = 'styling-item';
+  el.style.width = '100px';
+  el.style.height = '100px';
+  el.style.zIndex = nextStylingZ++;
+
+  const img = document.createElement('img');
+  img.src = cloth.image;
+  img.draggable = false;
+  el.appendChild(img);
+
+  const rm = document.createElement('button');
+  rm.className = 'remove-btn';
+  rm.textContent = '✕';
+  rm.onclick = (e) => {
+    e.stopPropagation();
+    removeStylingItem(item.id);
+  };
+  el.appendChild(rm);
+
+  // Position at center
+  const areaRect = area.getBoundingClientRect();
+  const x = Math.random() * (areaRect.width - 120) + 10;
+  const y = Math.random() * (areaRect.height - 120) + 10;
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+
+  // Touch drag
+  let dragging = false, startX, startY, origX, origY;
+  el.addEventListener('touchstart', function(e) {
+    if (e.target === rm) return;
+    dragging = true;
+    const touch = e.touches[0];
+    startX = touch.clientX; startY = touch.clientY;
+    origX = parseFloat(el.style.left); origY = parseFloat(el.style.top);
+    el.classList.add('dragging');
+    el.style.zIndex = nextStylingZ++;
+    e.preventDefault();
+  });
+  el.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    const touch = e.touches[0];
+    el.style.left = (origX + touch.clientX - startX) + 'px';
+    el.style.top = (origY + touch.clientY - startY) + 'px';
+    e.preventDefault();
+  });
+  el.addEventListener('touchend', function() {
+    dragging = false;
+    el.classList.remove('dragging');
+    // Update stored position
+    const it = stylingItems.find(s => s.el === el);
+    if (it) { it.x = parseFloat(el.style.left); it.y = parseFloat(el.style.top); }
+  });
+
+  // Mouse drag (for desktop)
+  el.addEventListener('mousedown', function(e) {
+    if (e.target === rm) return;
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    origX = parseFloat(el.style.left); origY = parseFloat(el.style.top);
+    el.classList.add('dragging');
+    el.style.zIndex = nextStylingZ++;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    el.style.left = (origX + e.clientX - startX) + 'px';
+    el.style.top = (origY + e.clientY - startY) + 'px';
+  });
+  document.addEventListener('mouseup', function() {
+    if (!dragging) return;
+    dragging = false;
+    el.classList.remove('dragging');
+    const it = stylingItems.find(s => s.el === el);
+    if (it) { it.x = parseFloat(el.style.left); it.y = parseFloat(el.style.top); }
+  });
+
+  area.appendChild(el);
+
+  const item = { id: Date.now(), clothId, x: parseFloat(el.style.left), y: parseFloat(el.style.top), el };
+  stylingItems.push(item);
+  toast('已添加到画布，可拖拽调整位置');
+}
+
+function removeStylingItem(id) {
+  const item = stylingItems.find(s => s.id === id);
+  if (item) {
+    item.el.remove();
+    stylingItems = stylingItems.filter(s => s.id !== id);
+    if (stylingItems.length === 0) {
+      document.getElementById('styling-hint').style.display = 'block';
+    }
+  }
+}
+
+function clearStyling() {
+  stylingItems.forEach(s => s.el.remove());
+  stylingItems = [];
+  document.getElementById('styling-hint').style.display = 'block';
+  toast('画布已清空');
+}
+
+async function saveOutfit() {
+  if (stylingItems.length === 0) return toast('⚠️ 请先添加衣物到画布');
+  const name = prompt('给这套搭配起个名字：', '我的搭配 ' + new Date().toLocaleDateString());
+  if (!name) return;
+
+  const outfit = {
+    id: Date.now(),
+    name,
+    items: stylingItems.map(s => ({ clothId: s.clothId, x: s.x, y: s.y })),
+    createdAt: Date.now()
+  };
+  await dbPut('outfits', outfit);
+  toast('✅ 搭配已保存！');
+}
+
+// ========== Outfits ==========
+async function refreshOutfits() {
+  const outfits = await dbGetAll('outfits');
+  outfits.sort((a,b) => b.createdAt - a.createdAt);
+  const list = document.getElementById('outfits-list');
+  const empty = document.getElementById('outfits-empty');
+
+  if (outfits.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const clothes = await dbGetAll('clothes');
+  const clothMap = {};
+  clothes.forEach(c => clothMap[c.id] = c);
+
+  list.innerHTML = outfits.map(o => `
+    <div class="outfit-card" onclick="viewOutfit(${o.id})">
+      <div class="outfit-preview">
+        ${o.items.map(i => {
+          const c = clothMap[i.clothId];
+          return c && c.image ? `<img src="${c.image}" alt="${c.name}">` : '';
+        }).join('')}
+      </div>
+      <div class="outfit-meta">
+        <span class="name">${o.name}</span>
+        <span class="date">${new Date(o.createdAt).toLocaleDateString()}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function viewOutfit(id) {
+  const outfits = await dbGetAll('outfits');
+  const outfit = outfits.find(o => o.id === id);
+  if (!outfit) return;
+
+  const clothes = await dbGetAll('clothes');
+  const clothMap = {};
+  clothes.forEach(c => clothMap[c.id] = c);
+
+  const itemsHtml = outfit.items.map(i => {
+    const c = clothMap[i.clothId];
+    if (!c) return '';
+    return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)">
+      ${c.image ? `<img src="${c.image}" style="width:50px;height:50px;border-radius:8px;object-fit:cover">` : ''}
+      <div><strong>${c.name}</strong><br><span style="font-size:12px;color:var(--text-light)">${CATEGORIES.find(cat=>cat.id===c.category)?.name||''}</span></div>
+    </div>`;
+  }).join('');
+
+  showModal(`
+    <button class="close" onclick="closeModal()">✕</button>
+    <h3 style="margin-top:8px">${outfit.name}</h3>
+    <div style="font-size:12px;color:var(--text-light);margin-bottom:10px">${new Date(outfit.createdAt).toLocaleString()}</div>
+    ${itemsHtml}
+    <div style="display:flex;gap:8px;margin-top:14px">
+      <button class="btn btn-danger btn-sm" onclick="deleteOutfit(${outfit.id})" style="flex:1">🗑️ 删除方案</button>
+    </div>
+  `);
+}
+
+async function deleteOutfit(id) {
+  if (!confirm('确定删除这个搭配方案吗？')) return;
+  await dbDelete('outfits', id);
+  closeModal();
+  toast('搭配方案已删除');
+  refreshOutfits();
+}
+
+// ========== Init ==========
+function initAddPage() {
+  const sel = document.getElementById('add-category');
+  sel.innerHTML = CATEGORIES.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+}
+
+// ========== Fitting Room ==========
+let fittingFilter = 'all';
+let fittingItems = [];
+let bodyPhotoData = null;
+let nextFitZ = 10;
+
+function handleBodyPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const maxW = 600, maxH = 800;
+      let w = img.width, h = img.height;
+      if (w > maxW || h > maxH) {
+        const ratio = Math.min(maxW/w, maxH/h);
+        w = Math.round(w * ratio); h = Math.round(h * ratio);
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      bodyPhotoData = canvas.toDataURL('image/jpeg', 0.85);
+      localStorage.setItem('closet_bodyPhoto', bodyPhotoData);
+      const preview = document.getElementById('body-preview');
+      preview.src = bodyPhotoData; preview.style.display = 'block';
+      document.getElementById('body-upload').style.borderColor = 'var(--primary)';
+      renderFittingArea();
+      toast('✅ 模特照片已设置');
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function refreshFitting() {
+  // Load saved body photo
+  if (!bodyPhotoData) {
+    bodyPhotoData = localStorage.getItem('closet_bodyPhoto');
+    if (bodyPhotoData) {
+      const preview = document.getElementById('body-preview');
+      preview.src = bodyPhotoData; preview.style.display = 'block';
+    }
+  }
+  renderFittingCatBar();
+  renderFittingPickBar();
+  renderFittingArea();
+}
+
+function renderFittingCatBar() {
+  const bar = document.getElementById('fitting-cat-bar');
+  bar.innerHTML = [
+    {id:'all',name:'🔍 全部'},
+    ...CATEGORIES.map(c => ({id:c.id, name:c.icon+' '+c.name.slice(2)}))
+  ].map(c => `<button class="cat-chip${fittingFilter===c.id?' active':''}" onclick="filterFitting('${c.id}')">${c.name}</button>`).join('');
+}
+
+async function filterFitting(catId) {
+  fittingFilter = catId;
+  renderFittingCatBar();
+  renderFittingPickBar();
+}
+
+async function renderFittingPickBar() {
+  const bar = document.getElementById('fitting-pick-bar');
+  const clothes = await dbGetAll('clothes');
+  const filtered = fittingFilter === 'all' ? clothes : clothes.filter(c => c.category === fittingFilter);
+  filtered.sort((a,b) => b.createdAt - a.createdAt);
+  if (filtered.length === 0) {
+    bar.innerHTML = '<div style="font-size:13px;color:var(--text-light);padding:10px;">这个分类还没有衣物~</div>';
+    return;
+  }
+  bar.innerHTML = filtered.map(c => `
+    <div class="pick-item" onclick="addToFitting(${c.id})">
+      <div class="thumb">
+        ${c.image ? `<img src="${c.image}" alt="${c.name}">` : `<div class="placeholder">${CATEGORIES.find(cat=>cat.id===c.category)?.icon||'👗'}</div>`}
+      </div>
+      <div class="label">${c.name}</div>
+    </div>
+  `).join('');
+}
+
+function renderFittingArea() {
+  const area = document.getElementById('fitting-area');
+  const empty = document.getElementById('fitting-empty');
+
+  // Remove old body img
+  const oldBody = area.querySelector('.body-img');
+  if (oldBody) oldBody.remove();
+
+  if (bodyPhotoData) {
+    empty.style.display = 'none';
+    const bodyImg = document.createElement('img');
+    bodyImg.className = 'body-img';
+    bodyImg.src = bodyPhotoData;
+    area.insertBefore(bodyImg, area.firstChild);
+  } else {
+    empty.style.display = 'block';
+  }
+}
+
+async function addToFitting(clothId) {
+  if (!bodyPhotoData) return toast('⚠️ 请先上传全身照');
+  const clothes = await dbGetAll('clothes');
+  const cloth = clothes.find(c => c.id === clothId);
+  if (!cloth || !cloth.image) return;
+
+  const area = document.getElementById('fitting-area');
+  const areaRect = area.getBoundingClientRect();
+
+  const el = document.createElement('div');
+  el.className = 'fitting-item';
+  el.style.zIndex = nextFitZ++;
+
+  const img = document.createElement('img');
+  img.src = cloth.image;
+  img.draggable = false;
+  // Default size based on category
+  const catSizes = {dress: 200, top: 160, bottom: 160, outerwear: 180, shoes: 80, bag: 90, hat: 70, earrings: 40, necklace: 60, bracelet: 40, scarf: 80, glasses: 50};
+  const defaultSize = catSizes[cloth.category] || 120;
+  img.style.width = defaultSize + 'px';
+  img.style.height = 'auto';
+  el.appendChild(img);
+
+  // Control bar
+  const ctrl = document.createElement('div');
+  ctrl.className = 'ctrl-bar';
+  ctrl.innerHTML = `
+    <button class="ctrl-btn" onclick="scaleFitting(this, 0.9)">−</button>
+    <button class="ctrl-btn" onclick="scaleFitting(this, 1.1)">+</button>
+    <button class="ctrl-btn" onclick="removeFittingItem(this)">✕</button>
+  `;
+  el.appendChild(ctrl);
+
+  // Position center
+  el.style.left = ((areaRect.width - defaultSize) / 2) + 'px';
+  el.style.top = ((areaRect.height - defaultSize) / 2) + 'px';
+
+  // Touch drag
+  let dragging = false, startX, startY, origX, origY;
+  el.addEventListener('touchstart', function(e) {
+    if (e.target.tagName === 'BUTTON') return;
+    dragging = true;
+    const touch = e.touches[0];
+    startX = touch.clientX; startY = touch.clientY;
+    origX = parseFloat(el.style.left); origY = parseFloat(el.style.top);
+    el.style.zIndex = nextFitZ++;
+    e.preventDefault();
+  });
+  el.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    const touch = e.touches[0];
+    el.style.left = (origX + touch.clientX - startX) + 'px';
+    el.style.top = (origY + touch.clientY - startY) + 'px';
+    e.preventDefault();
+  });
+  el.addEventListener('touchend', function() { dragging = false; });
+
+  // Mouse drag
+  el.addEventListener('mousedown', function(e) {
+    if (e.target.tagName === 'BUTTON') return;
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    origX = parseFloat(el.style.left); origY = parseFloat(el.style.top);
+    el.style.zIndex = nextFitZ++;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    el.style.left = (origX + e.clientX - startX) + 'px';
+    el.style.top = (origY + e.clientY - startY) + 'px';
+  });
+  document.addEventListener('mouseup', function() { dragging = false; });
+
+  area.appendChild(el);
+  fittingItems.push({ id: Date.now(), el });
+  toast('已添加到试穿，拖拽调整位置');
+}
+
+function scaleFitting(btn, factor) {
+  const item = btn.closest('.fitting-item');
+  const img = item.querySelector('img');
+  const currentW = parseFloat(img.style.width) || 120;
+  const newW = Math.max(30, Math.min(400, currentW * factor));
+  img.style.width = newW + 'px';
+}
+
+function removeFittingItem(btn) {
+  const item = btn.closest('.fitting-item');
+  item.remove();
+  fittingItems = fittingItems.filter(f => f.el !== item);
+}
+
+function clearFitting() {
+  fittingItems.forEach(f => f.el.remove());
+  fittingItems = [];
+  toast('已清空试穿');
+}
+
+function saveFittingScreenshot() {
+  if (!bodyPhotoData) return toast('⚠️ 请先上传全身照');
+  // Use html2canvas alternative: manually composite
+  const area = document.getElementById('fitting-area');
+  const areaRect = area.getBoundingClientRect();
+
+  const canvas = document.createElement('canvas');
+  canvas.width = areaRect.width;
+  canvas.height = Math.max(areaRect.height, 500);
+  const ctx = canvas.getContext('2d');
+
+  // White background
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const bodyImg = new Image();
+  bodyImg.onload = function() {
+    ctx.drawImage(bodyImg, 0, 0, canvas.width, canvas.height);
+
+    // Draw each fitting item
+    let pending = fittingItems.length;
+    if (pending === 0) {
+      downloadFitting(canvas);
+      return;
+    }
+    fittingItems.forEach(f => {
+      const img = f.el.querySelector('img');
+      const itemImg = new Image();
+      itemImg.onload = function() {
+        const x = parseFloat(f.el.style.left) || 0;
+        const y = parseFloat(f.el.style.top) || 0;
+        const w = parseFloat(img.style.width) || 120;
+        const h = itemImg.height * (w / itemImg.width);
+        ctx.drawImage(itemImg, x, y, w, h);
+        pending--;
+        if (pending === 0) downloadFitting(canvas);
+      };
+      itemImg.src = img.src;
+    });
+  };
+  bodyImg.src = bodyPhotoData;
+}
+
+function downloadFitting(canvas) {
+  const link = document.createElement('a');
+  link.download = '试穿效果_' + Date.now() + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  toast('✅ 试穿图已保存到手机！');
+}
+
+
+// ========== Backup / Restore ==========
+async function exportData() {
+  const dbData = {};
+  const stores = ['clothes', 'outfits'];
+  for (const store of stores) {
+    const tx = db.transaction(store, 'readonly');
+    const all = await new Promise((resolve) => {
+      const req = tx.objectStore(store).getAll();
+      req.onsuccess = () => resolve(req.result);
+    });
+    dbData[store] = all;
+  }
+  // Also include localStorage data
+  const lsData = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    lsData[key] = localStorage.getItem(key);
+  }
+  const exportObj = { indexedDB: dbData, localStorage: lsData, date: new Date().toISOString() };
+  const blob = new Blob([JSON.stringify(exportObj)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '电子衣橱_备份_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  toast('✅ 数据已导出！');
+}
+
+function importData() { document.getElementById('import-file').click(); }
+
+async function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = async function(ev) {
+    try {
+      const exportObj = JSON.parse(ev.target.result);
+      let count = 0;
+      if (exportObj.indexedDB) {
+        for (const [store, items] of Object.entries(exportObj.indexedDB)) {
+          for (const item of items) {
+            await dbPut(store, item);
+            count++;
+          }
+        }
+      }
+      if (exportObj.localStorage) {
+        for (const [key, value] of Object.entries(exportObj.localStorage)) {
+          localStorage.setItem(key, value);
+        }
+      }
+      toast(`✅ 已恢复 ${count} 条数据！刷新中...`);
+      setTimeout(() => location.reload(), 1500);
+    } catch (err) {
+      toast('⚠️ 文件格式错误');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+async function init() {
+  await openDB();
+  initAddPage();
+  refreshWardrobe();
+  refreshStyling();
+  refreshFitting();
+  refreshOutfits();
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="健身教练">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#FF6B35">
+<link rel="manifest" href="manifest.json?v=2">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="shortcut icon" href="favicon.png?v=2">
+<title>健身教练 - 新手训练指南</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --orange: #FF6B35; --orange-dark: #E55100; --orange-light: #FFE0B2;
+  --bg: #F5F5F5; --card: #FFFFFF; --text: #2D2D2D; --text-light: #888;
+  --border: #E0E0E0; --green: #4CAF50; --blue: #2196F3; --danger: #F44336;
+  --radius: 14px; --shadow: 0 2px 10px rgba(0,0,0,0.06); --nav-h: 68px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; display:flex; justify-content:center; min-height:100vh; }
+.app { width:100%; max-width:480px; min-height:100vh; padding-bottom:calc(var(--nav-h) + 16px); position:relative; }
+.header { background:linear-gradient(135deg,var(--orange),var(--orange-dark)); color:white; padding:18px 20px 20px; text-align:center; position:sticky; top:0; z-index:10; border-radius:0 0 20px 20px; }
+.header h1 { font-size:20px; font-weight:800; } .header .sub { font-size:12px; opacity:0.85; margin-top:2px; }
+.tab-content { display:none; padding:14px 14px 0; } .tab-content.active { display:block; }
+.card { background:var(--card); border-radius:var(--radius); padding:14px; margin-bottom:12px; box-shadow:var(--shadow); }
+.card-title { font-size:15px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+/* Stats */
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.stat-card { background:var(--card); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow); text-align:center; }
+.stat-card .label { font-size:11px; color:var(--text-light); margin-bottom:3px; }
+.stat-card .value { font-size:22px; font-weight:800; }
+.stat-card .unit { font-size:12px; font-weight:400; color:var(--text-light); }
+.stat-card.orange .value { color:var(--orange); } .stat-card.green .value { color:var(--green); } .stat-card.blue .value { color:var(--blue); }
+/* Category bar */
+.cat-bar { display:flex; gap:6px; overflow-x:auto; padding:4px 0 10px; scrollbar-width:none; }
+.cat-bar::-webkit-scrollbar { display:none; }
+.cat-chip { flex-shrink:0; padding:7px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; font-size:13px; cursor:pointer; white-space:nowrap; font-family:inherit; transition:all .2s; }
+.cat-chip.active { background:var(--orange); color:white; border-color:var(--orange); font-weight:600; }
+.cat-chip:active { transform:scale(.95); }
+/* Exercise list */
+.ex-item { display:flex; gap:12px; padding:12px; border-radius:12px; background:var(--bg); margin-bottom:8px; cursor:pointer; transition:all .2s; }
+.ex-item:active { transform:scale(.98); }
+.ex-icon { width:50px; height:50px; border-radius:12px; background:var(--orange-light); display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+.ex-info { flex:1; min-width:0; }
+.ex-name { font-size:14px; font-weight:700; margin-bottom:3px; }
+.ex-meta { font-size:11px; color:var(--text-light); display:flex; gap:8px; flex-wrap:wrap; }
+.ex-meta span { white-space:nowrap; }
+.ex-diff { font-size:10px; padding:2px 6px; border-radius:8px; font-weight:600; }
+.diff-初级 { background:#E8F5E9; color:#2E7D32; } .diff-中级 { background:#FFF3E0; color:#E65100; } .diff-高级 { background:#FFEBEE; color:#C62828; }
+/* Exercise detail */
+.ex-detail-img { width:100%; height:160px; background:var(--orange-light); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:60px; margin-bottom:12px; }
+.step-item { display:flex; gap:10px; padding:8px 0; border-bottom:1px solid var(--border); }
+.step-num { width:24px; height:24px; border-radius:50%; background:var(--orange); color:white; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step-text { font-size:13px; line-height:1.5; flex:1; }
+.info-row { display:flex; justify-content:space-between; padding:6px 0; font-size:13px; border-bottom:1px solid var(--border); }
+.info-row .l { color:var(--text-light); } .info-row .r { font-weight:600; }
+.tip-box { background:#FFF3E0; border-radius:10px; padding:10px; font-size:13px; line-height:1.5; margin-top:8px; }
+.tip-box strong { color:var(--orange-dark); }
+/* Form */
+.form-group { margin-bottom:10px; }
+.form-group label { display:block; font-size:12px; font-weight:600; color:var(--text-light); margin-bottom:3px; }
+.form-group input, .form-group select { width:100%; padding:11px 13px; border:1.5px solid var(--border); border-radius:10px; font-size:14px; font-family:inherit; background:var(--bg); -webkit-appearance:none; }
+.form-group input:focus, .form-group select:focus { outline:none; border-color:var(--orange); background:white; }
+.btn { width:100%; padding:12px; border:none; border-radius:10px; font-size:14px; font-weight:700; font-family:inherit; cursor:pointer; transition:all .2s; }
+.btn-primary { background:linear-gradient(135deg,var(--orange),var(--orange-dark)); color:white; }
+.btn-primary:active { transform:scale(.98); opacity:.9; }
+.btn-outline { background:white; border:1.5px solid var(--orange); color:var(--orange); }
+.btn-sm { width:auto; padding:7px 14px; font-size:12px; border-radius:8px; }
+/* History */
+.history-item { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); }
+.history-item:last-child { border:none; } .history-item .info { flex:1; } .history-item .date { font-size:12px; color:var(--text-light); }
+.history-item .detail { font-weight:600; font-size:13px; margin-top:2px; } .history-item .cal { font-weight:700; color:var(--orange); font-size:13px; }
+.history-item .del { color:var(--danger); font-size:12px; cursor:pointer; padding:4px; }
+/* Calendar heatmap */
+.heatmap { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-top:8px; }
+.heat-cell { aspect-ratio:1; border-radius:6px; background:#E8E8E8; font-size:9px; display:flex; align-items:center; justify-content:center; color:transparent; }
+.heat-cell.has { background:var(--orange-light); color:rgba(0,0,0,.3); }
+.heat-cell.l1 { background:#FFCC80; } .heat-cell.l2 { background:#FF9800; } .heat-cell.l3 { background:var(--orange); color:white; }
+.heat-cell.l4 { background:var(--orange-dark); color:white; }
+.heat-legend { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--text-light); margin-top:8px; justify-content:flex-end; }
+.heat-legend .swatch { width:12px; height:12px; border-radius:3px; }
+/* Plan */
+.plan-day { padding:12px; border-radius:12px; background:var(--bg); margin-bottom:8px; cursor:pointer; }
+.plan-day:active { opacity:.8; }
+.plan-day .ph { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.plan-day .day-name { font-weight:700; font-size:14px; } .plan-day .day-target { font-size:12px; color:var(--text-light); }
+.plan-day .day-badge { font-size:10px; padding:3px 8px; border-radius:10px; background:var(--orange-light); color:var(--orange-dark); font-weight:600; }
+.plan-day .ex-list { font-size:12px; color:var(--text-light); line-height:1.6; }
+/* Modal */
+.modal-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,.5); z-index:200; display:none; align-items:flex-end; justify-content:center; }
+.modal-overlay.show { display:flex; }
+.modal { background:white; border-radius:20px 20px 0 0; width:100%; max-width:480px; padding:20px; max-height:85vh; overflow-y:auto; animation:su .3s; }
+@keyframes su { from{transform:translateY(100%);} to{transform:translateY(0);} }
+.modal .close { float:right; background:none; border:none; font-size:24px; cursor:pointer; padding:4px 8px; color:var(--text-light); }
+/* Bottom nav */
+.bottom-nav { position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:white; border-top:1px solid var(--border); display:flex; justify-content:space-around; padding:7px 0 env(safe-area-inset-bottom,7px); z-index:100; }
+.nav-item { display:flex; flex-direction:column; align-items:center; gap:2px; padding:4px 8px; font-size:10px; color:var(--text-light); cursor:pointer; border:none; background:none; font-family:inherit; }
+.nav-item .icon { font-size:21px; } .nav-item.active { color:var(--orange); font-weight:600; }
+.toast { position:fixed; top:16px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:9px 22px; border-radius:20px; font-size:13px; z-index:300; opacity:0; transition:opacity .3s; pointer-events:none; }
+.toast.show { opacity:1; }
+.empty { text-align:center; padding:36px 20px; color:var(--text-light); }
+.empty .icon { font-size:44px; display:block; margin-bottom:10px; opacity:.4; }
+.empty .text { font-size:13px; }
+input[type=date] { color-scheme:light; }
+.progress-bar { height:8px; background:var(--orange-light); border-radius:4px; overflow:hidden; margin-top:4px; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--orange),var(--orange-dark)); border-radius:4px; transition:width .5s; }
+.chart-wrap { position:relative; height:200px; }
+
+/* Backup buttons */
+.backup-bar { display:flex; gap:8px; padding:8px 14px 14px; }
+.backup-btn { flex:1; padding:8px; border:1.5px solid var(--border); border-radius:10px; background:white; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; display:flex; align-items:center; justify-content:center; gap:4px; }
+.backup-btn:active { background:var(--bg); }
+.backup-btn.export { border-color:var(--orange); color:var(--orange); }
+.backup-btn.import { border-color:var(--blue); color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header"><h1>💪 健身教练</h1><div class="sub">新手训练指南 · 健身房减脂塑形</div></div>
+
+  <!-- TAB: HOME -->
+  <div class="tab-content active" id="tab-home">
+    <div class="stats-grid">
+      <div class="stat-card orange"><div class="label">🔥 本周训练</div><div class="value" id="hw-count">0<span class="unit">次</span></div></div>
+      <div class="stat-card green"><div class="label">📊 累计训练</div><div class="value" id="total-count">0<span class="unit">次</span></div></div>
+      <div class="stat-card blue"><div class="label">🏃 累计消耗</div><div class="value" id="total-cal">0<span class="unit">大卡</span></div></div>
+      <div class="stat-card orange"><div class="label">⚖️ 当前体重</div><div class="value" id="home-weight">--<span class="unit">kg</span></div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📅 今日推荐</div>
+      <div id="today-rec"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔥 本周训练热力图</div>
+      <div class="heatmap" id="heatmap"></div>
+      <div class="heat-legend">
+        <span>少</span>
+        <div class="swatch" style="background:#E8E8E8"></div>
+        <div class="swatch" style="background:#FFCC80"></div>
+        <div class="swatch" style="background:#FF9800"></div>
+        <div class="swatch" style="background:#FF6B35"></div>
+        <div class="swatch" style="background:#E55100"></div>
+        <span>多</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">💡 新手贴士</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--text-light);" id="daily-tip">热身5-10分钟再开始训练，避免受伤。新手先学动作，重量次之。</div>
+    </div>
+  </div>
+
+  <!-- TAB: EXERCISES -->
+  <div class="tab-content" id="tab-exercises">
+    <div class="cat-bar" id="cat-bar"></div>
+    <div id="ex-list"></div>
+  </div>
+
+  <!-- TAB: LOG -->
+  <div class="tab-content" id="tab-log">
+    <div class="card">
+      <div class="card-title">📝 记录今日训练</div>
+      <div class="form-group"><label>动作</label><select id="log-ex"></select></div>
+      <div class="form-group"><label>组数</label><input type="number" id="log-sets" placeholder="例如：4" min="1" max="20" inputmode="numeric"></div>
+      <div class="form-group"><label>每组次数</label><input type="number" id="log-reps" placeholder="例如：12" min="1" max="100" inputmode="numeric"></div>
+      <div class="form-group"><label>重量(kg，可选)</label><input type="number" id="log-weight" placeholder="例如：40" min="0" max="500" inputmode="decimal" step="0.5"></div>
+      <div class="form-group"><label>日期</label><input type="date" id="log-date"></div>
+      <button class="btn btn-primary" onclick="addLog()">✅ 记录训练</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 训练记录</div>
+      <div id="log-list"></div>
+      <div class="empty" id="log-empty"><span class="icon">📝</span><div class="text">还没有训练记录<br>开始你的第一次训练吧！</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: BODY -->
+  <div class="tab-content" id="tab-body">
+    <div class="card">
+      <div class="card-title">⚖️ 记录身体数据</div>
+      <div class="form-group"><label>体重(kg)</label><input type="number" id="body-weight" placeholder="例如：65.5" step="0.1" min="30" max="200" inputmode="decimal"></div>
+      <div class="form-group"><label>体脂率(%, 可选)</label><input type="number" id="body-fat" placeholder="例如：22" step="0.1" min="3" max="60" inputmode="decimal"></div>
+      <div class="form-group"><label>日期</label><input type="date" id="body-date"></div>
+      <button class="btn btn-primary" onclick="addBody()">💾 保存数据</button>
+    </div>
+    <div class="card">
+      <div class="card-title">📈 体重趋势</div>
+      <div class="chart-wrap"><canvas id="weightChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 身体数据历史</div>
+      <div id="body-list"></div>
+      <div class="empty" id="body-empty"><span class="icon">⚖️</span><div class="text">还没有身体数据<br>记录你的起点吧！</div></div>
+    </div>
+  </div>
+
+  <!-- TAB: PLAN -->
+  <div class="tab-content" id="tab-plan">
+    <div class="card">
+      <div class="card-title">🗓️ 推荐训练计划</div>
+      <div style="font-size:13px;color:var(--text-light);margin-bottom:10px;">新手4天分割计划，每次45-60分钟。每周训练4天，休息3天。</div>
+      <div id="plan-list"></div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item active" data-tab="home" onclick="switchTab('home')"><span class="icon">🏠</span>首页</button>
+    <button class="nav-item" data-tab="exercises" onclick="switchTab('exercises')"><span class="icon">💪</span>动作</button>
+    <button class="nav-item" data-tab="log" onclick="switchTab('log')"><span class="icon">📝</span>打卡</button>
+    <button class="nav-item" data-tab="body" onclick="switchTab('body')"><span class="icon">⚖️</span>数据</button>
+    <button class="nav-item" data-tab="plan" onclick="switchTab('plan')"><span class="icon">🗓️</span>计划</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-content" onclick="event.stopPropagation()"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>const EXERCISES = [
+  // ==================== 胸部 chest ====================
+  {
+    id: 'bench_press',
+    name: '杠铃卧推',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '杠铃+卧推架',
+    difficulty: '初级',
+    muscle: '胸大肌、三角肌前束、肱三头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 80,
+    steps: [
+      '躺在卧推凳上，双脚踩实地面，眼睛正对杠铃杆',
+      '双手握杠，握距略宽于肩，收紧肩胛骨',
+      '吸气，控制杠铃缓慢下放至胸口（乳头附近）',
+      '呼气，发力将杠铃推起至起始位置，手臂自然伸直'
+    ],
+    tips: '保持肩胛骨收紧，下放时控制速度，不要弓背过度',
+    demo: '🏋️'
+  },
+  {
+    id: 'dumbbell_bench_press',
+    name: '哑铃卧推',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '哑铃+卧推凳',
+    difficulty: '初级',
+    muscle: '胸大肌、三角肌前束、肱三头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 75,
+    steps: [
+      '坐在卧推凳上，双手持哑铃放在大腿上，逐个将哑铃举至肩部',
+      '身体后躺，将哑铃举至胸口两侧，掌心朝脚的方向',
+      '吸气，控制哑铃缓慢下放至胸���两侧',
+      '呼气，发力将哑铃推起至起始位置，注意不要让哑铃相互碰撞'
+    ],
+    tips: '哑铃下放幅度可以比杠铃更低，拉伸感更强，注意保持手腕中立',
+    demo: '🏋️'
+  },
+  {
+    id: 'incline_dumbbell_press',
+    name: '上斜哑铃卧推',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '哑铃+上斜卧推凳',
+    difficulty: '初级',
+    muscle: '胸大肌上束、三角肌前束、肱三头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 75,
+    steps: [
+      '将卧推凳调至上斜30-45度角，坐在凳上持哑铃于肩部两侧',
+      '身体后靠，将哑铃举至胸口上方，掌心朝前',
+      '吸气，控制哑铃缓慢下放至上胸部两侧',
+      '呼气，发力将哑铃推起至起始位置'
+    ],
+    tips: '角度不宜过大（不超过45度），否则肩部参与过多，重点感受上胸发力',
+    demo: '🏋️'
+  },
+  {
+    id: 'pec_deck_fly',
+    name: '蝴蝶机夹胸',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '蝴蝶机',
+    difficulty: '初级',
+    muscle: '胸大肌',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 50,
+    steps: [
+      '调整蝴蝶机座椅高度，使手柄与胸部齐平',
+      '坐在机器上，背部贴紧靠背，前臂靠在手柄垫上',
+      '呼气，用胸部发力将两侧手柄向中间合拢',
+      '吸气，缓慢回到起始位置，感受胸部充分拉伸'
+    ],
+    tips: '全程保持挺胸收腹，手臂只是"传递"力量，发力点在胸肌',
+    demo: '🦋'
+  },
+  {
+    id: 'cable_crossover',
+    name: '绳索十字夹胸',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '龙门架绳索',
+    difficulty: '中级',
+    muscle: '胸大肌',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 55,
+    steps: [
+      '将龙门架两侧滑轮调至高位，双手各握一个D型手柄',
+      '站在龙门架中间，身体微前倾，双手向两侧打开',
+      '呼气，用胸部发力将双手在身前交叉合拢',
+      '吸气，控制绳索缓慢回到起始位置'
+    ],
+    tips: '手肘微曲固定不变，顶峰收缩时停顿1秒，想象用胸部"拥抱"',
+    demo: '🤗'
+  },
+  {
+    id: 'push_up',
+    name: '俯卧撑',
+    category: 'chest',
+    categoryName: '胸部',
+    equipment: '徒手',
+    difficulty: '初级',
+    muscle: '胸大肌、三角肌前束、肱三头肌、核心',
+    sets: '4组 × 10-20次',
+    rest: '45-60秒',
+    calories: 40,
+    steps: [
+      '双手撑地，间距略宽于肩，身体保持一条直线',
+      '收紧核心，夹紧臀部，不要塌腰或撅臀',
+      '吸气，弯曲手臂将身体下放至胸部接近地面',
+      '呼气，发力将身体推起至起始位置'
+    ],
+    tips: '新手可先做跪姿俯卧撑，核心全程保持紧绷，不要低头',
+    demo: '💪'
+  },
+
+  // ==================== 背部 back ====================
+  {
+    id: 'lat_pulldown',
+    name: '高位下拉',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '高位下拉机',
+    difficulty: '初级',
+    muscle: '背阔肌、大圆肌、肱二头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 70,
+    steps: [
+      '调整座椅高度，使大腿被挡板固定，双手宽握杠铃杆',
+      '挺胸收腹，身体微后倾，肩胛骨下沉',
+      '呼气，将横杆拉至锁骨下方，肘部向下向后运动',
+      '吸气，控制横杆缓慢回到起始位置，充分拉伸背部'
+    ],
+    tips: '下拉时先沉肩再发力，想象用手肘往下拉，而不是用手臂硬拉',
+    demo: '🏋️'
+  },
+  {
+    id: 'seated_row',
+    name: '坐姿划船',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '坐姿划船机',
+    difficulty: '初级',
+    muscle: '背阔肌、菱形肌、斜方肌中下束、肱二头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 65,
+    steps: [
+      '坐在划船机上，双脚踩实踏板，膝盖微曲',
+      '双手握住手柄，挺胸收腹，背部保持平直',
+      '呼气，将手柄拉至腹部，肘部贴近身体向后拉',
+      '吸气，控制手柄缓慢回到起始位置，感受背部拉伸'
+    ],
+    tips: '拉时夹紧肩胛骨，不要含胸弓背，手臂尽量贴近身体',
+    demo: '🚣'
+  },
+  {
+    id: 'barbell_row',
+    name: '杠铃划船',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '杠铃',
+    difficulty: '中级',
+    muscle: '背阔肌、菱形肌、斜方肌、肱二头肌',
+    sets: '4组 × 8-10次',
+    rest: '90秒',
+    calories: 75,
+    steps: [
+      '双脚与肩同宽，微屈膝，髋部铰链前倾至上半身接近水平',
+      '双手正握杠铃，握距略宽于肩，背部保持平直',
+      '呼气，将杠铃拉至下腹部，肘部向上向后运动',
+      '吸气，控制杠铃缓慢下放至手臂自然伸直'
+    ],
+    tips: '全程保持背部平直不弓背，核心收紧保护腰椎，新手可用较轻重量',
+    demo: '🏋️'
+  },
+  {
+    id: 'dumbbell_single_arm_row',
+    name: '哑铃单臂划船',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '哑铃+卧推凳',
+    difficulty: '初级',
+    muscle: '背阔肌、菱形肌、肱二头肌',
+    sets: '4组 × 8-12次（每侧）',
+    rest: '60秒',
+    calories: 60,
+    steps: [
+      '单膝跪在卧推凳上，同侧手撑住凳面，上身前倾与地面平行',
+      '另一只手持哑铃自然下垂，背部保持平直',
+      '呼气，将哑铃拉至腰侧，肘部贴近身体向后上方拉',
+      '吸气，控制哑铃缓慢下放至起始位置'
+    ],
+    tips: '拉时想象手肘朝天花板方向运动，不要扭转身体，核心保持稳定',
+    demo: '🏋️'
+  },
+  {
+    id: 'face_pull',
+    name: '面拉',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '绳索+绳索手柄',
+    difficulty: '初级',
+    muscle: '三角肌后束、斜方肌中下束、菱形肌',
+    sets: '4组 × 15-20次',
+    rest: '45-60秒',
+    calories: 45,
+    steps: [
+      '将绳索调至面部高度，双手握住绳索两端',
+      '站直，双臂向前伸直，身体微后倾',
+      '呼气，将绳索拉向面部两侧，肘部向两侧打开向外旋转',
+      '吸气，缓慢回到起始位置'
+    ],
+    tips: '重量不用太大，注重后束和肩胛的收缩感，对改善体态很有帮助',
+    demo: '😮'
+  },
+  {
+    id: 'straight_arm_pulldown',
+    name: '直臂下拉',
+    category: 'back',
+    categoryName: '背部',
+    equipment: '龙门架绳索+直杆',
+    difficulty: '初级',
+    muscle: '背阔肌、大圆肌、胸大肌下束',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 50,
+    steps: [
+      '将绳索滑轮调至高位，双手正握直杆，站距与肩同宽',
+      '微屈膝，身体微前倾，手臂保持伸直（不锁死）',
+      '呼气，用背部发力将杆向下压至大腿前侧',
+      '吸气，控制杆缓慢回到起始位置，感受背阔肌拉伸'
+    ],
+    tips: '手臂始终保持微曲固定，发力点在背阔肌而非三头肌',
+    demo: '🏋️'
+  },
+
+  // ==================== 肩膀 shoulders ====================
+  {
+    id: 'dumbbell_shoulder_press',
+    name: '哑铃推举',
+    category: 'shoulders',
+    categoryName: '肩膀',
+    equipment: '哑铃+座椅',
+    difficulty: '初级',
+    muscle: '三角肌前束、三角肌中束、肱三头肌',
+    sets: '4组 × 8-12次',
+    rest: '60-90秒',
+    calories: 70,
+    steps: [
+      '坐在有靠背的凳子上，双手持哑铃举至肩部两侧，掌心朝前',
+      '挺胸收腹，背部贴紧靠背，双脚踩实地面',
+      '呼气，发力将哑铃向上推举至头顶上方，手臂自然伸直',
+      '吸气，控制哑铃缓慢下放至肩部起始位置'
+    ],
+    tips: '推举时不要过分后仰，下放至肩部即可，保护肩关节',
+    demo: '🏋️'
+  },
+  {
+    id: 'lateral_raise',
+    name: '侧平举',
+    category: 'shoulders',
+    categoryName: '肩膀',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '三角肌中束',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 40,
+    steps: [
+      '双脚与肩同宽站立，双手持哑铃于身体两侧，掌心朝内',
+      '微屈肘，挺胸收腹，身体保持中立',
+      '呼气，将哑铃向两侧平举至与肩同高',
+      '吸气，控制哑铃缓慢下放至起始位置'
+    ],
+    tips: '重量不宜过大，小重量多次数效果更好，想象倒水的感觉',
+    demo: '🤸'
+  },
+  {
+    id: 'front_raise',
+    name: '前平举',
+    category: 'shoulders',
+    categoryName: '肩膀',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '三角肌前束',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 40,
+    steps: [
+      '双脚与肩同宽站立，双手持哑铃于大腿前方，掌心朝后',
+      '挺胸收腹，手臂自然伸直（微曲）',
+      '呼气，将哑铃向前平举至与肩同高',
+      '吸气，控制哑铃缓慢下放至起始位置'
+    ],
+    tips: '不要借助身体晃动的惯性，动作要慢且控制好，可交替单臂做',
+    demo: '🤸'
+  },
+  {
+    id: 'reverse_pec_deck',
+    name: '反向蝴蝶机',
+    category: 'shoulders',
+    categoryName: '肩膀',
+    equipment: '蝴蝶机（反向使用）',
+    difficulty: '初级',
+    muscle: '三角肌后束、斜方肌中下束、菱形肌',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 40,
+    steps: [
+      '调整蝴蝶机座椅，面向靠背坐好（反向坐）',
+      '双手握住手柄或前臂贴垫，胸部贴紧靠背',
+      '呼气，用后束发力将两侧手柄向后打开',
+      '吸气，缓慢回到起始位置，感受后束拉伸'
+    ],
+    tips: '重量适中，注重后束收缩感，不要用大重量猛甩',
+    demo: '🦋'
+  },
+  {
+    id: 'barbell_shoulder_press',
+    name: '杠铃推举',
+    category: 'shoulders',
+    categoryName: '肩膀',
+    equipment: '杠铃+推举架',
+    difficulty: '中级',
+    muscle: '三角肌前束、三角肌中束、肱三头肌、上斜方肌',
+    sets: '4组 × 6-10次',
+    rest: '90秒',
+    calories: 80,
+    steps: [
+      '在推举架上将杠铃调至胸口高度，双手正握杠铃，握距略宽于肩',
+      '将杠铃取出，置于锁骨前方，挺胸收腹，核心收紧',
+      '呼气，发力将杠铃推举至头顶上方，手臂自然伸直',
+      '吸气，控制杠铃缓慢下放至锁骨起始位置'
+    ],
+    tips: '推举时收紧臀部和核心，不要过度挺腰，杠铃轨迹尽量垂直',
+    demo: '🏋️'
+  },
+
+  // ==================== 手臂 arms ====================
+  {
+    id: 'barbell_curl',
+    name: '杠铃弯举',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '杠铃',
+    difficulty: '初级',
+    muscle: '肱二头肌、肱肌、前臂',
+    sets: '4组 × 8-12次',
+    rest: '60秒',
+    calories: 50,
+    steps: [
+      '双脚与肩同宽站立，双手反握杠铃，握距与肩同宽',
+      '挺胸收腹，肘部紧贴身体两侧，杠铃置于大腿前方',
+      '呼气，用二头肌发力将杠铃弯举至肩部前方',
+      '吸气，控制杠铃缓慢下放至起始位置'
+    ],
+    tips: '肘部固定不动不要前后移动，不要用身体晃动借力',
+    demo: '💪'
+  },
+  {
+    id: 'dumbbell_curl',
+    name: '哑铃弯举',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '肱二头肌、肱肌、前臂',
+    sets: '4组 × 8-12次（每侧）',
+    rest: '60秒',
+    calories: 50,
+    steps: [
+      '双脚与肩同宽站立，双手持哑铃于身体两侧，掌心朝内',
+      '挺胸收腹，肘部紧贴身体两侧',
+      '呼气，一只手弯举哑铃，同时手腕外旋（掌心转向上）',
+      '吸气，控制哑铃缓慢下放，换另一只手重复'
+    ],
+    tips: '可交替做也可同时做，注意顶峰收缩停顿1秒，下放要慢',
+    demo: '💪'
+  },
+  {
+    id: 'hammer_curl',
+    name: '锤式弯举',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '肱肌、肱桡肌、肱二头肌',
+    sets: '4组 × 8-12次',
+    rest: '60秒',
+    calories: 50,
+    steps: [
+      '双脚与肩同宽站立，双手持哑铃于身体两侧，掌心相对',
+      '挺胸收腹，肘部紧贴身体两侧，手腕保持中立',
+      '呼气，像拿锤子一样将哑铃弯举至肩部前方',
+      '吸气，控制哑铃缓慢下放至起始位置'
+    ],
+    tips: '手腕全程保持中立不旋转，能更好刺激肱肌和前臂',
+    demo: '🔨'
+  },
+  {
+    id: 'cable_pushdown',
+    name: '绳索下压',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '龙门架绳索+直杆或绳索',
+    difficulty: '初级',
+    muscle: '肱三头肌',
+    sets: '4组 × 10-15次',
+    rest: '45-60秒',
+    calories: 45,
+    steps: [
+      '将绳索滑轮调至高位，双手握住直杆或绳索手柄',
+      '站直，挺胸收腹，肘部紧贴身体两侧固定',
+      '呼气，用三头肌发力将杆向下压至手臂完全伸直',
+      '吸气，控制杆缓慢回到起始位置（肘部弯曲约90度）'
+    ],
+    tips: '肘部全程夹紧不动，只有前臂运动，顶峰收缩停顿1秒',
+    demo: '🏋️'
+  },
+  {
+    id: 'dumbbell_overhead_triceps_extension',
+    name: '哑铃颈后臂屈伸',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '肱三头肌（长头）',
+    sets: '4组 × 10-12次',
+    rest: '60秒',
+    calories: 45,
+    steps: [
+      '坐或站立，双手托住一个哑铃的一端，举至头顶上方',
+      '上臂保持固定垂直，肘部贴近耳朵两侧',
+      '吸气，控制哑铃缓慢下放至颈后',
+      '呼气，用三头肌发力将哑铃举回起始位置'
+    ],
+    tips: '上臂保持不动，只有前臂运动，肘部不要向外打开',
+    demo: '💪'
+  },
+  {
+    id: 'narrow_push_up',
+    name: '窄距俯卧撑',
+    category: 'arms',
+    categoryName: '手臂',
+    equipment: '徒手',
+    difficulty: '初级',
+    muscle: '肱三头肌、胸大肌、三角肌前束',
+    sets: '4组 × 8-15次',
+    rest: '45-60秒',
+    calories: 40,
+    steps: [
+      '双手撑地，间距与肩同宽或略窄，身体保持一条直线',
+      '收紧核心，夹紧臀部，肘部贴近身体两侧',
+      '吸气，弯曲手臂将身体下放至胸部接近地面',
+      '呼气，发力将身体推起至起始位置'
+    ],
+    tips: '肘部贴近身体夹紧，三头肌参与更多，新手可先做跪姿版本',
+    demo: '💪'
+  },
+
+  // ==================== 腿部 legs ====================
+  {
+    id: 'barbell_squat',
+    name: '杠铃深蹲',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '杠铃+深蹲架',
+    difficulty: '中级',
+    muscle: '股四头肌、臀大肌、腘绳肌、核心',
+    sets: '4组 × 8-12次',
+    rest: '90-120秒',
+    calories: 100,
+    steps: [
+      '将杠铃置于深蹲架上肩部高度位置，杠铃放在斜方肌上（高杠位）',
+      '双手握杠，肘部向后拉，收紧背部，从架上取出杠铃后退一步',
+      '双脚与肩同宽或略宽，脚尖微外八，吸气，屈膝屈髋下蹲至大腿与地面平行',
+      '呼气，脚跟蹬地发力站起至起始位置'
+    ],
+    tips: '膝盖方向与脚尖一致，不要内扣，核心全程收紧，背部保持平直',
+    demo: '🏋️'
+  },
+  {
+    id: 'leg_press',
+    name: '腿举',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '腿举机',
+    difficulty: '初级',
+    muscle: '股四头肌、臀大肌、腘绳肌',
+    sets: '4组 × 10-15次',
+    rest: '90秒',
+    calories: 85,
+    steps: [
+      '坐在腿举机上，背部和臀部贴紧靠背，双脚与肩同宽踩在踏板中部',
+      '脚尖微外八，双手握住两侧手柄，解除安全锁',
+      '吸气，屈膝让踏板缓慢下降至膝盖弯曲约90度',
+      '呼气，脚掌发力将踏板推回起始位置，注意不要完全锁死膝盖'
+    ],
+    tips: '下放幅度不要过低以免伤腰，推起时膝盖不锁死，脚掌着力点决定刺激偏重',
+    demo: '🦵'
+  },
+  {
+    id: 'leg_curl',
+    name: '腿弯举',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '腿弯举机',
+    difficulty: '初级',
+    muscle: '腘绳肌',
+    sets: '4组 × 10-15次',
+    rest: '60秒',
+    calories: 50,
+    steps: [
+      '俯卧在腿弯举机上，小腿后侧贴住滚筒垫',
+      '调整位置使膝关节对齐机器转轴，双手握住前方手柄',
+      '呼气，用腘绳肌发力将滚筒向臀部方向弯曲',
+      '吸气，控制重量缓慢回到起始位置'
+    ],
+    tips: '臀部不要抬起借力，下放时控制速度，顶峰收缩停顿1秒',
+    demo: '🦵'
+  },
+  {
+    id: 'leg_extension',
+    name: '腿屈伸',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '腿屈伸机',
+    difficulty: '初级',
+    muscle: '股四头肌',
+    sets: '4组 × 12-15次',
+    rest: '45-60秒',
+    calories: 50,
+    steps: [
+      '坐在腿屈伸机上，小腿前侧贴住滚筒垫，调整位置使膝关节对齐转轴',
+      '背部贴紧靠背，双手握住两侧手柄',
+      '呼气，用股四头肌发力将小腿向上踢至完全伸直',
+      '吸气，控制重量缓慢回到起始位置'
+    ],
+    tips: '顶峰收缩停顿1秒，下放时控制速度，不要用大重量猛甩',
+    demo: '🦵'
+  },
+  {
+    id: 'bulgarian_split_squat',
+    name: '保加利亚分腿蹲',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '哑铃+卧推凳',
+    difficulty: '中级',
+    muscle: '股四头肌、臀大肌、腘绳肌',
+    sets: '4组 × 8-12次（每侧）',
+    rest: '60秒',
+    calories: 70,
+    steps: [
+      '背对卧推凳站立，将一只脚背搭在凳面上，前脚向前迈一步',
+      '双手持哑铃自然下垂，挺胸收腹，身体保持直立',
+      '吸气，屈膝下蹲至前腿大腿与地面平行，后膝接近地面',
+      '呼气，前脚脚跟发力站起至起始位置'
+    ],
+    tips: '前脚着力点在脚跟，膝盖方向与脚尖一致，上身不要过度前倾',
+    demo: '🦵'
+  },
+  {
+    id: 'hip_thrust',
+    name: '臀推',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '杠铃+卧推凳',
+    difficulty: '初级',
+    muscle: '臀大肌、腘绳肌',
+    sets: '4组 × 10-15次',
+    rest: '60-90秒',
+    calories: 70,
+    steps: [
+      '上背靠在卧推凳边缘，双脚踩实地面与肩同宽，杠铃放在髋部',
+      '在杠铃和髋部之间垫一块垫子（如有），双手稳住杠铃',
+      '呼气，脚跟蹬地发力，将髋部向上推至身体与地面平行',
+      '吸气，控制髋部缓慢下放至起始位置'
+    ],
+    tips: '顶峰收缩时夹紧臀部停顿1-2秒，下巴微收，不要过度挺腰',
+    demo: '🍑'
+  },
+  {
+    id: 'lunge',
+    name: '箭步蹲',
+    category: 'legs',
+    categoryName: '腿部',
+    equipment: '哑铃',
+    difficulty: '初级',
+    muscle: '股四头肌、臀大肌、腘绳肌',
+    sets: '4组 × 10-12次（每侧）',
+    rest: '60秒',
+    calories: 65,
+    steps: [
+      '双脚与肩同宽站立，双手持哑铃自然下垂于身体两侧',
+      '挺胸收腹，核心收紧，身体保持直立',
+      '吸气，一只脚向前迈一大步，屈膝下蹲至前腿大腿与地面平行',
+      '呼气，前脚脚跟发力将身体推回起始位置，换另一侧'
+    ],
+    tips: '前膝不超过脚尖太多，后膝接近地面但不触地，上身保持直立',
+    demo: '🦵'
+  },
+
+  // ==================== 核心 core ====================
+  {
+    id: 'plank',
+    name: '平板支撑',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '徒手',
+    difficulty: '初级',
+    muscle: '腹横肌、腹直肌、腹斜肌',
+    sets: '4组 × 30-60秒',
+    rest: '45秒',
+    calories: 30,
+    steps: [
+      '俯卧，前臂撑地，肘关节在肩部正下方',
+      '双脚并拢或略分开，脚尖撑地',
+      '收紧核心和臀部，身体从头到脚保持一条直线',
+      '保持自然呼吸，坚持目标时间'
+    ],
+    tips: '不要塌腰或撅臀，臀部不要翘起，核心全程保持紧绷',
+    demo: '🧘'
+  },
+  {
+    id: 'crunch',
+    name: '卷腹',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '徒手/瑜伽垫',
+    difficulty: '初级',
+    muscle: '腹直肌',
+    sets: '4组 × 15-20次',
+    rest: '45秒',
+    calories: 30,
+    steps: [
+      '仰卧在瑜伽垫上，双膝弯曲，双脚踩实地面',
+      '双手轻放在耳旁或交叉于胸前，不要抱头拉颈',
+      '呼气，用腹部发力将肩胛骨微微抬离地面',
+      '吸气，控制身体缓慢回到起始位置'
+    ],
+    tips: '下背部始终贴地，起身幅度不用太大，重点感受腹部收缩',
+    demo: '🧘'
+  },
+  {
+    id: 'hanging_leg_raise',
+    name: '悬垂举腿',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '单杠',
+    difficulty: '中级',
+    muscle: '腹直肌（下束）、髂腰肌',
+    sets: '4组 × 8-12次',
+    rest: '60秒',
+    calories: 45,
+    steps: [
+      '双手正握单杠，身体自然悬垂，手臂伸直',
+      '收紧核心，控制身体不要前后晃动',
+      '呼气，用腹部发力将双腿抬至与地面平行或更高',
+      '吸气，控制双腿缓慢下放至起始位置'
+    ],
+    tips: '不要用惯性甩腿，新手可先做屈膝版（抬膝盖），下放时控制速度',
+    demo: '🤸'
+  },
+  {
+    id: 'russian_twist',
+    name: '俄罗斯转体',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '哑铃或药球',
+    difficulty: '初级',
+    muscle: '腹斜肌、腹直肌',
+    sets: '4组 × 15-20次（每侧）',
+    rest: '45秒',
+    calories: 35,
+    steps: [
+      '坐在瑜伽垫上，双膝弯曲，脚跟可触地或微微抬起',
+      '身体后倾约45度，双手持哑铃或药球于胸前',
+      '呼气，用腹部发力将上身转向一侧，双手跟随移动',
+      '吸气，回到中间后转向另一侧，左右交替进行'
+    ],
+    tips: '转动时感受腹斜肌发力，背部保持平直，不要用惯性快速转',
+    demo: '🔄'
+  },
+  {
+    id: 'lying_leg_raise',
+    name: '仰卧举腿',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '徒手/瑜伽垫',
+    difficulty: '初级',
+    muscle: '腹直肌（下束）、髂腰肌',
+    sets: '4组 × 12-15次',
+    rest: '45秒',
+    calories: 30,
+    steps: [
+      '仰卧在瑜伽垫上，双手放在臀部下方或身体两侧',
+      '双腿并拢自然伸直，脚尖微绷',
+      '呼气，用腹部发力将双腿抬至与地面垂直',
+      '吸气，控制双腿缓慢下放至接近地面（不触地）'
+    ],
+    tips: '下背部始终贴地，下放时控制速度，不要让腰部拱起',
+    demo: '🧘'
+  },
+  {
+    id: 'cable_crunch',
+    name: '缆绳卷腹',
+    category: 'core',
+    categoryName: '核心',
+    equipment: '龙门架绳索+绳索手柄',
+    difficulty: '初级',
+    muscle: '腹直肌',
+    sets: '4组 × 12-15次',
+    rest: '45秒',
+    calories: 40,
+    steps: [
+      '将绳索调至高位，跪在绳索下方，双手握住绳索手柄置于头两侧',
+      '身体跪姿，髋部固定不动，背部微弓',
+      '呼气，用腹部发力将肘部拉向大腿方向，身体向前卷曲',
+      '吸气，控制身体缓慢回到起始位置'
+    ],
+    tips: '髋部固定不动，只有脊柱弯曲卷腹，顶峰收缩停顿1秒',
+    demo: '🏋️'
+  },
+
+  // ==================== 有氧 cardio ====================
+  {
+    id: 'treadmill',
+    name: '跑步机',
+    category: 'cardio',
+    categoryName: '有氧',
+    equipment: '跑步机',
+    difficulty: '初级',
+    muscle: '全身（心肺系统）',
+    sets: '1组 × 20-40分钟',
+    rest: '—',
+    calories: 250,
+    steps: [
+      '上跑步机前先设置好速度和坡度，扶住扶手站稳',
+      '从慢走开始热身，逐渐加速到目标配速',
+      '保持自然呼吸节奏，目视前方，手臂自然摆动',
+      '结束后逐渐减速，慢走2-3分钟冷身再下机'
+    ],
+    tips: '新手建议先走跑结合，坡度调1-2模拟户外环境，保护膝盖',
+    demo: '🏃'
+  },
+  {
+    id: 'elliptical',
+    name: '椭圆机',
+    category: 'cardio',
+    categoryName: '有氧',
+    equipment: '椭圆机',
+    difficulty: '初级',
+    muscle: '全身（心肺系统、上下肢）',
+    sets: '1组 × 20-40分钟',
+    rest: '—',
+    calories: 220,
+    steps: [
+      '调整椭圆机踏板和手柄高度，双脚踩上踏板',
+      '双手握住活动手柄，挺胸收腹，身体保持直立',
+      '同时蹬腿和推拉手柄，开始椭圆运动',
+      '保持稳定节奏，结束后逐渐降低阻力冷身'
+    ],
+    tips: '对膝盖冲击小，适合大体重人群，可用阻力调节强度',
+    demo: '🚶'
+  },
+  {
+    id: 'rowing_machine',
+    name: '划船机',
+    category: 'cardio',
+    categoryName: '有氧',
+    equipment: '划船机',
+    difficulty: '初级',
+    muscle: '全身（背、腿、核心、心肺）',
+    sets: '1组 × 15-30分钟',
+    rest: '—',
+    calories: 200,
+    steps: [
+      '坐在划船机上，双脚固定在踏板上，双手握住手柄',
+      '身体前倾，膝盖弯曲，手臂伸直，这是"抓水"起始位',
+      '呼气，先蹬腿，再身体后倾，最后拉手柄至肋骨下方',
+      '吸气，反向顺序回位：伸手→身体前倾→屈膝回到起始位'
+    ],
+    tips: '发力顺序是腿→核心→手臂，回位顺序相反，不要用手臂硬拉',
+    demo: '🚣'
+  },
+  {
+    id: 'jump_rope',
+    name: '跳绳',
+    category: 'cardio',
+    categoryName: '有氧',
+    equipment: '跳绳',
+    difficulty: '初级',
+    muscle: '全身（小腿、核心、心肺）',
+    sets: '4组 × 1-3分钟',
+    rest: '30-60秒',
+    calories: 180,
+    steps: [
+      '选择合适长度的跳绳，双脚踩在绳子中间，手柄到腋下为宜',
+      '双手握柄置于身体两侧，大臂贴近身体',
+      '用手腕（不是手臂）甩绳，前脚掌着地轻盈跳跃',
+      '保持自然呼吸，绳子过脚时跳跃高度刚好即可'
+    ],
+    tips: '前脚掌着地缓冲，膝盖微曲，跳跃幅度不用太大，新手可先无绳练节奏',
+    demo: '🤸'
+  }
+];
+
+if (typeof module !== 'undefined') module.exports = EXERCISES;
+</script>
+<script>
+// ========== Storage ==========
+function load(k) { try { return JSON.parse(localStorage.getItem('fit_'+k))||[]; } catch(e){ return []; } }
+function save(k,d) { localStorage.setItem('fit_'+k, JSON.stringify(d)); }
+let toastT;
+function toast(m) { const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2000); }
+function today() { return new Date().toISOString().split('T')[0]; }
+function switchTab(t) {
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  document.querySelector(`[data-tab="${t}"]`).classList.add('active');
+  if(t==='home') refreshHome();
+  if(t==='exercises') refreshEx();
+  if(t==='log') refreshLog();
+  if(t==='body') refreshBody();
+}
+function showModal(html){ document.getElementById('modal-content').innerHTML=html; document.getElementById('modal').classList.add('show'); }
+function closeModal(e){ if(e&&e.target.id!=='modal')return; document.getElementById('modal').classList.remove('show'); }
+
+// ========== Categories ==========
+const CATS = [
+  {id:'all',name:'🔍 全部'},{id:'chest',name:'💪 胸部'},{id:'back',name:'🔙 背部'},
+  {id:'shoulders',name:'🏔️ 肩膀'},{id:'arms',name:'💪 手臂'},{id:'legs',name:'🦵 腿部'},
+  {id:'core',name:'🔥 核心'},{id:'cardio',name:'🏃 有氧'}
+];
+let exFilter='all';
+
+function refreshEx() {
+  const bar=document.getElementById('cat-bar');
+  bar.innerHTML=CATS.map(c=>`<button class="cat-chip${exFilter===c.id?' active':''}" onclick="filterEx('${c.id}')">${c.name}</button>`).join('');
+  renderExList();
+}
+function filterEx(id){ exFilter=id; refreshEx(); }
+function renderExList() {
+  const list=document.getElementById('ex-list');
+  const filtered=exFilter==='all'?EXERCISES:EXERCISES.filter(e=>e.category===exFilter);
+  list.innerHTML=filtered.map(e=>`
+    <div class="ex-item" onclick="viewEx('${e.id}')">
+      <div class="ex-icon">${e.demo}</div>
+      <div class="ex-info">
+        <div class="ex-name">${e.name}</div>
+        <div class="ex-meta">
+          <span>🏋️ ${e.equipment}</span>
+          <span>📊 ${e.sets}</span>
+          <span class="ex-diff diff-${e.difficulty}">${e.difficulty}</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function viewEx(id) {
+  const e=EXERCISES.find(x=>x.id===id); if(!e)return;
+  showModal(`
+    <button class="close" onclick="closeModal()">✕</button>
+    <h3 style="margin-top:6px">${e.demo} ${e.name}</h3>
+    <div class="ex-detail-img">${e.demo}</div>
+    <div class="info-row"><span class="l">🎯 目标肌群</span><span class="r">${e.muscle}</span></div>
+    <div class="info-row"><span class="l">🏋️ 器材</span><span class="r">${e.equipment}</span></div>
+    <div class="info-row"><span class="l">📊 组数次数</span><span class="r">${e.sets}</span></div>
+    <div class="info-row"><span class="l">⏱️ 休息时间</span><span class="r">${e.rest}</span></div>
+    <div class="info-row"><span class="l">🔥 估算消耗</span><span class="r">~${e.calories}大卡</span></div>
+    <div class="info-row"><span class="l">📈 难度</span><span class="r">${e.difficulty}</span></div>
+    <h4 style="margin:12px 0 6px">📋 动作步骤</h4>
+    ${e.steps.map((s,i)=>`<div class="step-item"><div class="step-num">${i+1}</div><div class="step-text">${s}</div></div>`).join('')}
+    <div class="tip-box">💡 <strong>要点提示：</strong>${e.tips}</div>
+    <button class="btn btn-primary" style="margin-top:12px" onclick="quickLog('${e.id}')">📝 立即记录此动作</button>
+  `);
+}
+function quickLog(id) {
+  closeModal();
+  switchTab('log');
+  document.getElementById('log-ex').value=id;
+  toast('已选择动作，填写组数次数即可记录');
+}
+
+// ========== Training Log ==========
+function initLogSelect() {
+  const sel=document.getElementById('log-ex');
+  sel.innerHTML=EXERCISES.map(e=>`<option value="${e.id}">${e.demo} ${e.name} (${e.categoryName})</option>`).join('');
+  document.getElementById('log-date').value=today();
+}
+function addLog() {
+  const exId=document.getElementById('log-ex').value;
+  const sets=parseInt(document.getElementById('log-sets').value);
+  const reps=parseInt(document.getElementById('log-reps').value);
+  const weight=parseFloat(document.getElementById('log-weight').value)||0;
+  const date=document.getElementById('log-date').value||today();
+  if(!sets||sets<=0) return toast('⚠️ 请输入组数');
+  if(!reps||reps<=0) return toast('⚠️ 请输入次数');
+  const ex=EXERCISES.find(e=>e.id===exId);
+  const cal=Math.round(ex.calories*(sets/4));
+  const data=load('logs');
+  data.push({id:Date.now(),exId,exName:ex.name,exDemo:ex.demo,category:ex.categoryName,sets,reps,weight,cal,date});
+  save('logs',data);
+  document.getElementById('log-sets').value='';
+  document.getElementById('log-reps').value='';
+  document.getElementById('log-weight').value='';
+  toast(`✅ 已记录！${ex.name} ${sets}×${reps} 消耗~${cal}大卡`);
+  refreshLog(); refreshHome();
+}
+function delLog(id){ let d=load('logs'); d=d.filter(l=>l.id!==id); save('logs',d); refreshLog(); refreshHome(); }
+function refreshLog() {
+  const data=load('logs');
+  const list=document.getElementById('log-list');
+  const empty=document.getElementById('log-empty');
+  if(data.length===0){ list.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+  list.innerHTML=[...data].reverse().slice(0,80).map(l=>`
+    <div class="history-item">
+      <div class="info"><div class="date">${l.date} · ${l.category}</div>
+      <div class="detail">${l.exDemo} ${l.exName} · ${l.sets}组×${l.reps}次${l.weight?' · '+l.weight+'kg':''}</div></div>
+      <div style="text-align:right"><div class="cal">🔥${l.cal}</div><span class="del" onclick="delLog(${l.id})">✕</span></div>
+    </div>`).join('');
+}
+
+// ========== Body Data ==========
+function addBody() {
+  const w=parseFloat(document.getElementById('body-weight').value);
+  const f=parseFloat(document.getElementById('body-fat').value)||0;
+  const date=document.getElementById('body-date').value||today();
+  if(!w||w<30||w>200) return toast('⚠️ 请输入合理体重');
+  let data=load('body');
+  const idx=data.findIndex(b=>b.date===date);
+  if(idx>=0){ data[idx].weight=w; data[idx].fat=f; }
+  else data.push({id:Date.now(),date,weight:w,fat:f});
+  data.sort((a,b)=>a.date.localeCompare(b.date));
+  save('body',data);
+  document.getElementById('body-weight').value='';
+  document.getElementById('body-fat').value='';
+  toast('✅ 身体数据已保存');
+  refreshBody(); refreshHome();
+}
+function delBody(id){ let d=load('body'); d=d.filter(b=>b.id!==id); save('body',d); refreshBody(); refreshHome(); }
+function refreshBody() {
+  const data=load('body');
+  const list=document.getElementById('body-list');
+  const empty=document.getElementById('body-empty');
+  document.getElementById('body-date').value=today();
+  if(data.length===0){ list.innerHTML=''; empty.style.display='block'; drawBodyChart([]); return; }
+  empty.style.display='none';
+  list.innerHTML=[...data].reverse().map(b=>`
+    <div class="history-item">
+      <div class="info"><div class="date">${b.date}</div>
+      <div class="detail">${b.weight}kg${b.fat?' · 体脂'+b.fat+'%':''}</div></div>
+      <span class="del" onclick="delBody(${b.id})">✕</span>
+    </div>`).join('');
+  drawBodyChart(data);
+}
+let bodyChart=null;
+function drawBodyChart(data) {
+  const ctx=document.getElementById('weightChart').getContext('2d');
+  if(bodyChart) bodyChart.destroy();
+  const labels=data.map(d=>d.date);
+  const weights=data.map(d=>d.weight);
+  const allLabels=data.length>0?labels:[''];
+  const allVals=data.length>0?weights:[0];
+  bodyChart=new Chart(ctx,{type:'line',data:{labels:allLabels,datasets:[{
+    label:'体重(kg)',data:allVals,borderColor:'#FF6B35',backgroundColor:'rgba(255,107,53,0.1)',
+    fill:true,tension:.3,pointRadius:4,pointBackgroundColor:'#FF6B35',pointBorderColor:'white',pointBorderWidth:2
+  }]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{grid:{display:false},ticks:{font:{size:10},maxTicksLimit:6}},
+  y:{ticks:{font:{size:10},callback:v=>v+'kg'}}}}});
+}
+
+// ========== Home ==========
+function refreshHome() {
+  const logs=load('logs');
+  const body=load('body');
+  // This week
+  const now=new Date(); const weekStart=new Date(now); weekStart.setDate(now.getDate()-now.getDay()); weekStart.setHours(0,0,0,0);
+  const weekLogs=logs.filter(l=>new Date(l.date)>=weekStart);
+  document.getElementById('hw-count').innerHTML=weekLogs.length+'<span class="unit">次</span>';
+  document.getElementById('total-count').innerHTML=logs.length+'<span class="unit">次</span>';
+  const totalCal=logs.reduce((s,l)=>s+l.cal,0);
+  document.getElementById('total-cal').innerHTML=totalCal+'<span class="unit">大卡</span>';
+  const lastWeight=body.length>0?body[body.length-1].weight:0;
+  document.getElementById('home-weight').innerHTML=(lastWeight?lastWeight:'--')+'<span class="unit">kg</span>';
+  // Today's recommendation
+  const dayOfWeek=now.getDay();
+  const planDay=PLAN[dayOfWeek]||PLAN[1];
+  document.getElementById('today-rec').innerHTML=`
+    <div class="plan-day" onclick="switchTab('plan')">
+      <div class="ph"><span class="day-name">${planDay.name}</span><span class="day-badge">${planDay.target}</span></div>
+      <div class="ex-list">${planDay.exercises}</div>
+    </div>`;
+  // Heatmap (last 28 days = 4 weeks)
+  const hm=document.getElementById('heatmap');
+  let html='';
+  for(let i=27;i>=0;i--) {
+    const d=new Date(); d.setDate(d.getDate()-i); const ds=d.toISOString().split('T')[0];
+    const dayLogs=logs.filter(l=>l.date===ds);
+    const cal=dayLogs.reduce((s,l)=>s+l.cal,0);
+    let lvl=''; if(cal>0){ if(cal<100)lvl='l1'; else if(cal<250)lvl='l2'; else if(cal<400)lvl='l3'; else lvl='l4'; }
+    const dayNum=d.getDate();
+    html+=`<div class="heat-cell ${lvl}" title="${ds}: ${cal}大卡">${dayNum}</div>`;
+  }
+  hm.innerHTML=html;
+  // Tip
+  const tips=[
+    '热身5-10分钟再开始训练，避免受伤。新手先学动作，重量次之。',
+    '训练后拉伸5-10分钟，帮助肌肉恢复，减少酸痛。',
+    '每组之间休息60-90秒，不要太长也不要太短。',
+    '呼吸很重要！发力时呼气，放松时吸气。',
+    '动作要慢，特别是下放阶段，控制肌肉感受。',
+    '训练前1小时吃点碳水和蛋白质，有能量练得更好。',
+    '训练后30分钟内补充蛋白质，帮助肌肉修复。',
+    '多喝水！训练时每15分钟喝几口水。',
+    '不要每天都练同一个部位，肌肉需要48小时恢复。',
+    '睡眠是最好的恢复，保证7-8小时。'
+  ];
+  document.getElementById('daily-tip').textContent=tips[Math.floor(Math.random()*tips.length)];
+}
+
+// ========== Plan ==========
+const PLAN = [
+  {name:'周一',target:'胸+三头',exercises:'杠铃卧推 4×10 → 哑铃卧推 3×12 → 蝴蝶机夹胸 3×12 → 绳索下压 3×12 → 哑铃颈后臂屈伸 3×12',days:'周一'},
+  {name:'周二',target:'背+二头',exercises:'高位下拉 4×10 → 坐姿划船 3×12 → 杠铃划船 3×10 → 杠铃弯举 3×12 → 锤式弯举 3×12',days:'周二'},
+  {name:'周三',target:'休息',exercises:'休息日，可以散步或做轻度拉伸',days:'周三'},
+  {name:'周四',target:'腿+肩',exercises:'杠铃深蹲 4×10 → 腿举 3×12 → 腿弯举 3×12 → 哑铃推举 3×12 → 侧平举 3×15',days:'周四'},
+  {name:'周五',target:'核心+有氧',exercises:'平板支撑 4×30秒 → 卷腹 3×20 → 俄罗斯转体 3×20 → 跑步机 30分钟',days:'周五'},
+  {name:'周六',target:'休息/轻度',exercises:'休息日，可以瑜伽或散步',days:'周六'},
+  {name:'周日',target:'休息',exercises:'休息日，准备下周训练',days:'周日'},
+];
+function refreshPlan() {
+  document.getElementById('plan-list').innerHTML=PLAN.map((p,i)=>`
+    <div class="plan-day" onclick="switchTab('log')">
+      <div class="ph"><span class="day-name">${p.name} · ${p.target}</span>
+      <span class="day-badge" style="${p.target==='休息'||p.target.includes('休息')?'background:#E8F5E9;color:#2E7D32':''}">${p.target==='休息'?'休息':'训练'}</span></div>
+      <div class="ex-list">${p.exercises}</div>
+    </div>`).join('');
+}
+
+// ========== Init ==========
+
+// ========== Backup / Restore ==========
+function exportData() {
+  const data = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('fit_')) data[key] = localStorage.getItem(key);
+  }
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '健身教练_备份_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  toast('✅ 数据已导出！');
+}
+
+function importData() { document.getElementById('import-file').click(); }
+
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    try {
+      const data = JSON.parse(ev.target.result);
+      let count = 0;
+      for (const [key, value] of Object.entries(data)) {
+        localStorage.setItem(key, value);
+        count++;
+      }
+      toast(`✅ 已恢复 ${count} 条数据！刷新中...`);
+      setTimeout(() => location.reload(), 1500);
+    } catch (err) {
+      toast('⚠️ 文件格式错误');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+function init() {
+  initLogSelect();
+  refreshHome();
+  refreshEx();
+  refreshLog();
+  refreshBody();
+  refreshPlan();
+}
+init();
+</script>
+</body>
+</html>
