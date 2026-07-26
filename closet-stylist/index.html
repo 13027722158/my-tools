@@ -40,33 +40,46 @@ body {
 .card { background: var(--card); border-radius: var(--radius); padding: 14px; margin-bottom: 12px; box-shadow: var(--shadow); }
 .card-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
 
-/* Category filter bar */
-.cat-bar { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+/* Category filter bar - 小红书式 */
+.cat-bar { display: flex; gap: 14px; overflow-x: auto; padding: 8px 0 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; border-bottom: 1px solid var(--border); }
 .cat-bar::-webkit-scrollbar { display: none; }
 .cat-chip {
-  flex-shrink: 0; padding: 7px 14px; border-radius: 20px; border: 1.5px solid var(--border);
-  background: white; font-size: 13px; cursor: pointer; white-space: nowrap;
-  font-family: inherit; transition: all 0.2s; -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0; padding: 6px 0; border-radius: 0; border: none; border-bottom: 2px solid transparent;
+  background: transparent; font-size: 14px; cursor: pointer; white-space: nowrap;
+  font-family: inherit; transition: all 0.2s; -webkit-tap-highlight-color: transparent; color: var(--text-light);
+  position: relative;
 }
-.cat-chip.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 600; }
-.cat-chip:active { transform: scale(0.95); }
+.cat-chip.active { background: transparent; color: var(--text); border-bottom-color: var(--primary); font-weight: 700; }
+.cat-chip:active { opacity: 0.6; }
 
-/* Wardrobe grid */
-.wardrobe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+/* Wardrobe grid - 3列小红书风格 */
+.wardrobe-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
 .cloth-card {
-  background: white; border-radius: var(--radius); overflow: hidden;
-  box-shadow: var(--shadow); cursor: pointer; transition: transform 0.2s;
+  background: white; border-radius: 0; overflow: hidden;
+  cursor: pointer; transition: transform 0.2s; position: relative;
+  box-shadow: none;
 }
-.cloth-card:active { transform: scale(0.97); }
+.cloth-card:active { opacity: 0.8; }
 .cloth-card .img-wrap {
-  width: 100%; height: 160px; background: #f8f5f5; display: flex;
+  width: 100%; aspect-ratio: 3/4; background: #FFFFFF; display: flex;
   align-items: center; justify-content: center; overflow: hidden;
 }
 .cloth-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
 .cloth-card .img-wrap .placeholder { font-size: 48px; opacity: 0.4; }
-.cloth-card .info { padding: 10px 12px; }
-.cloth-card .info .name { font-size: 13px; font-weight: 600; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.cloth-card .info .meta { font-size: 11px; color: var(--text-light); }
+.cloth-card .info { padding: 6px 4px 8px; }
+.cloth-card .info .name { font-size: 11px; font-weight: 500; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
+.cloth-card .info .meta { font-size: 9px; color: var(--text-light); }
+.cloth-card .count-badge {
+  position: absolute; bottom: 4px; right: 6px;
+  font-size: 11px; color: var(--text-light); font-weight: 400;
+  text-shadow: 0 0 2px rgba(255,255,255,0.8);
+}
+
+/* 衣橱小红书式标题栏 */
+.wardrobe-topbar { display:flex; justify-content:space-between; align-items:center; padding:10px 4px 8px; }
+.wardrobe-topbar .title { font-size:17px; font-weight:700; }
+.wardrobe-topbar .actions { display:flex; gap:16px; font-size:20px; color:var(--text); }
+.wardrobe-topbar .actions span { cursor:pointer; opacity:.7; }
 
 /* Add clothing */
 .add-card { background: var(--card); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
@@ -274,6 +287,13 @@ input[type="date"] { color-scheme: light; }
 
   <!-- ============ TAB: WARDROBE ============ -->
   <div class="tab-content active" id="tab-wardrobe">
+    <div class="wardrobe-topbar">
+      <div class="title" id="wardrobe-title">我的衣橱</div>
+      <div class="actions">
+        <span onclick="switchTab('add')" title="添加">＋</span>
+        <span onclick="filterWardrobe('all')" title="全部">⊟</span>
+      </div>
+    </div>
     <div class="cat-bar" id="cat-bar"></div>
     <div class="wardrobe-grid" id="wardrobe-grid"></div>
     <div class="empty-state" id="wardrobe-empty">
@@ -777,10 +797,19 @@ async function refreshWardrobe() {
 
 function renderCatBar() {
   const bar = document.getElementById('cat-bar');
-  bar.innerHTML = [
-    {id:'all',name:'🔍 全部'},
-    ...CATEGORIES.map(c => ({id:c.id, name:c.icon+' '+c.name.slice(2)}))
-  ].map(c => `<button class="cat-chip${wardrobeFilter===c.id?' active':''}" onclick="filterWardrobe('${c.id}')">${c.name}</button>`).join('');
+  const total = allClothes.length;
+  const cats = [{id:'all', name:'全部', icon:'🔍'}];
+  // 统计每个分类的数量
+  const counts = {};
+  allClothes.forEach(c => { counts[c.category] = (counts[c.category] || 0) + 1; });
+  CATEGORIES.forEach(c => {
+    if (counts[c.id]) cats.push({id:c.id, name:c.name.slice(c.name.indexOf(' ')+1)||c.name, icon:c.icon});
+  });
+  bar.innerHTML = cats.map(c => {
+    const n = c.id === 'all' ? total : counts[c.id] || 0;
+    const active = wardrobeFilter === c.id;
+    return `<button class="cat-chip${active?' active':''}" onclick="filterWardrobe('${c.id}')">${c.icon} ${c.name}(${n})${active?'<span style="color:#E07070;margin-left:2px;">●</span>':''}</button>`;
+  }).join('');
 }
 
 function filterWardrobe(catId) {
@@ -794,6 +823,19 @@ function renderWardrobeGrid() {
   const empty = document.getElementById('wardrobe-empty');
   const filtered = wardrobeFilter === 'all' ? allClothes : allClothes.filter(c => c.category === wardrobeFilter);
 
+  // 更新顶部标题：当前显示的件数
+  const titleEl = document.getElementById('wardrobe-title');
+  if (titleEl) {
+    const currentCat = wardrobeFilter === 'all' ? null : CATEGORIES.find(c => c.id === wardrobeFilter);
+    titleEl.textContent = currentCat ? `${currentCat.name.slice(currentCat.name.indexOf(' ')+1)||currentCat.name}` : '我的衣橱';
+  }
+  // 总数同步到首页顶部的「X件单品」展示（用 cat-bar 第一个chip代替）
+  const allChip = document.querySelector('#cat-bar .cat-chip');
+  if (wardrobeFilter === 'all') {
+    const total = allClothes.length;
+    document.title = `${total}件单品 - 电子衣橱`;
+  }
+
   if (filtered.length === 0) {
     grid.innerHTML = '';
     empty.style.display = 'block';
@@ -801,17 +843,25 @@ function renderWardrobeGrid() {
   }
   empty.style.display = 'none';
 
-  grid.innerHTML = filtered.map(c => `
+  // 统计同名衣物的数量
+  const nameCount = {};
+  filtered.forEach(c => { nameCount[c.name] = (nameCount[c.name] || 0) + 1; });
+
+  grid.innerHTML = filtered.map(c => {
+    const catName = CATEGORIES.find(cat=>cat.id===c.category)?.name || c.category;
+    return `
     <div class="cloth-card" onclick="viewCloth(${c.id})">
       <div class="img-wrap">
         ${c.image ? `<img src="${c.image}" alt="${c.name}">` : `<span class="placeholder">${CATEGORIES.find(cat=>cat.id===c.category)?.icon||'👗'}</span>`}
       </div>
+      <div class="count-badge">${nameCount[c.name] || 1}</div>
       <div class="info">
         <div class="name">${c.name}</div>
-        <div class="meta">${CATEGORIES.find(cat=>cat.id===c.category)?.name||c.category}${c.color?' · '+c.color:''}</div>
+        <div class="meta">${catName.replace(/^\S+\s/,'')}${c.color?' · '+c.color:''}</div>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function viewCloth(id) {
