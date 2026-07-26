@@ -210,6 +210,16 @@ input[type="date"] { color-scheme: light; }
 .cutout-btn:active { transform: scale(0.98); }
 .cutout-btn:disabled { opacity: 0.5; cursor: wait; }
 .cutout-btn.done { border-style: solid; background: #E8F5E9; color: #2E7D32; border-color: #4CAF50; }
+
+/* Batch import */
+.batch-item { display:flex; gap:10px; padding:10px; border-radius:10px; background:var(--bg); margin-bottom:8px; align-items:center; }
+.batch-item .b-thumb { width:60px; height:60px; border-radius:8px; overflow:hidden; background:#f5f2f2; flex-shrink:0; position:relative; }
+.batch-item .b-thumb img { width:100%; height:100%; object-fit:cover; }
+.batch-item .b-thumb .b-status { position:absolute; bottom:0; left:0; right:0; font-size:8px; text-align:center; color:#fff; background:rgba(0,0,0,.5); }
+.batch-item .b-info { flex:1; min-width:0; }
+.batch-item .b-info input, .batch-item .b-info select { width:100%; padding:6px 8px; border:1px solid var(--border); border-radius:6px; font-size:12px; font-family:inherit; margin-bottom:4px; background:white; }
+.batch-item .b-info input:focus, .batch-item .b-info select:focus { outline:none; border-color:var(--primary); }
+.batch-item .b-remove { color:var(--danger); font-size:18px; cursor:pointer; padding:4px; }
 .loading-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
   z-index: 400; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 16px;
@@ -304,8 +314,18 @@ input[type="date"] { color-scheme: light; }
 
   <!-- ============ TAB: ADD ============ -->
   <div class="tab-content" id="tab-add">
+    <!-- 批量导入入口 -->
+    <div class="add-card" style="background:linear-gradient(135deg,#FFF0F5,#F5E6E6);border:1.5px dashed var(--primary);">
+      <div class="card-title">⚡ 批量导入（截图快捷入库）</div>
+      <div style="font-size:12px;color:var(--text-light);margin-bottom:10px;line-height:1.6;">
+        一次性选多张淘宝/拼多多商品截图<br>自动AI抠图去背景 → 批量分类入库
+      </div>
+      <input type="file" id="batch-input" accept="image/*" multiple style="display:none" onchange="handleBatch(event)">
+      <button class="btn btn-primary" onclick="document.getElementById('batch-input').click()">📸 选择多张截图批量导入</button>
+    </div>
+
     <div class="add-card">
-      <div class="card-title">📸 添加衣物</div>
+      <div class="card-title">📸 单件添加</div>
       <div class="photo-area" id="photo-area" onclick="document.getElementById('photo-input').click()">
         <span class="icon">📷</span>
         <span class="text">点击拍照或选择照片</span>
@@ -657,6 +677,171 @@ async function removeBackground() {
     btn.innerHTML = '✨ AI抠图失败，点此重试';
     toast('⚠️ 抠图失败，请用纯色背景重拍，或使用手动擦除');
   }
+}
+
+// ========== 批量导入 ==========
+let batchQueue = [];
+
+async function handleBatch(event) {
+  const files = Array.from(event.target.files);
+  if (!files.length) return;
+  event.target.value = '';
+
+  // 显示批量导入弹窗
+  showModal(`
+    <button class="close" onclick="closeModal()">✕</button>
+    <h3 style="margin-top:8px">⚡ 批量导入 (${files.length}张)</h3>
+    <div id="batch-progress" style="font-size:13px;color:var(--text-light);margin:8px 0;">准备中...</div>
+    <div id="batch-list"></div>
+    <button class="btn btn-primary" id="batch-save-btn" onclick="saveBatch()" style="margin-top:12px;display:none;">💾 全部保存到衣橱</button>
+  `);
+
+  batchQueue = [];
+  const listEl = document.getElementById('batch-list');
+  const progressEl = document.getElementById('batch-progress');
+
+  // 逐张处理
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    progressEl.textContent = `处理中 ${i+1}/${files.length}：${file.name}`;
+
+    // 创建占位条目
+    const itemId = 'batch-' + i;
+    listEl.insertAdjacentHTML('beforeend', `
+      <div class="batch-item" id="${itemId}">
+        <div class="b-thumb"><img id="${itemId}-img"><div class="b-status" id="${itemId}-status">处理中...</div></div>
+        <div class="b-info">
+          <input type="text" id="${itemId}-name" placeholder="名称（如：黑色T恤）">
+          <select id="${itemId}-cat">${CATEGORIES.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
+        </div>
+        <span class="b-remove" onclick="removeBatchItem('${itemId}')">✕</span>
+      </div>
+    `);
+
+    try {
+      // 读取图片为 dataURL
+      const dataUrl = await fileToDataURL(file);
+      document.getElementById(itemId + '-img').src = dataUrl;
+
+      // AI 抠图
+      const cutoutData = await aiCutout(dataUrl);
+      document.getElementById(itemId + '-img').src = cutoutData;
+      document.getElementById(itemId + '-status').textContent = '✅已抠图';
+      document.getElementById(itemId + '-status').style.background = 'rgba(76,175,80,.8)';
+
+      batchQueue.push({ id: itemId, image: cutoutData, file });
+    } catch (err) {
+      console.error('Batch item error:', err);
+      document.getElementById(itemId + '-status').textContent = '⚠️失败';
+      // 失败也保留原图入库
+      batchQueue.push({ id: itemId, image: dataUrl, file });
+    }
+  }
+
+  progressEl.textContent = `✅ 全部处理完成！填写名称和分类后保存`;
+  document.getElementById('batch-save-btn').style.display = 'block';
+}
+
+function fileToDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function aiCutout(imageDataUrl) {
+  // 复用已加载的模型
+  if (!bgRemoverModel) {
+    const { AutoModel } = window.transformers;
+    bgRemoverModel = await AutoModel.from_pretrained('briaai/RMBG-1.4', {
+      config: { model_type: 'custom' }
+    });
+  }
+
+  const { RawImage, Tensor } = window.transformers;
+  const image = await RawImage.fromURL(imageDataUrl);
+  const processedImage = image.resize(1024, 1024);
+  const pixelData = processedImage.data;
+  const inputData = new Float32Array(1024 * 1024 * 3);
+  for (let i = 0; i < pixelData.length; i += 4) {
+    inputData[i / 4 * 3] = pixelData[i] / 255.0;
+    inputData[i / 4 * 3 + 1] = pixelData[i + 1] / 255.0;
+    inputData[i / 4 * 3 + 2] = pixelData[i + 2] / 255.0;
+  }
+  const inputTensor = new Tensor('float32', inputData, [1, 3, 1024, 1024]);
+  const { output } = await bgRemoverModel({ input: inputTensor });
+
+  const maskData = output.data;
+  const maskWidth = output.dims[output.dims.length - 2];
+  const maskHeight = output.dims[output.dims.length - 1];
+  const maskCanvas = document.createElement('canvas');
+  maskCanvas.width = maskWidth; maskCanvas.height = maskHeight;
+  const maskCtx = maskCanvas.getContext('2d');
+  const maskImageData = maskCtx.createImageData(maskWidth, maskHeight);
+  for (let i = 0; i < maskWidth * maskHeight; i++) {
+    const alpha = Math.round(maskData[i] * 255);
+    maskImageData.data[i * 4] = alpha;
+    maskImageData.data[i * 4 + 1] = alpha;
+    maskImageData.data[i * 4 + 2] = alpha;
+    maskImageData.data[i * 4 + 3] = 255;
+  }
+  maskCtx.putImageData(maskImageData, 0, 0);
+
+  // 应用到原图
+  return new Promise((resolve, reject) => {
+    const origImg = new Image();
+    origImg.onload = function() {
+      const resultCanvas = document.createElement('canvas');
+      const maxW = 600, maxH = 600;
+      let w = origImg.width, h = origImg.height;
+      if (w > maxW || h > maxH) { const ratio = Math.min(maxW/w, maxH/h); w = Math.round(w*ratio); h = Math.round(h*ratio); }
+      resultCanvas.width = w; resultCanvas.height = h;
+      const ctx = resultCanvas.getContext('2d');
+      ctx.drawImage(origImg, 0, 0, w, h);
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = w; tempCanvas.height = h;
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCtx.drawImage(maskCanvas, 0, 0, w, h);
+      ctx.globalCompositeOperation = 'destination-in';
+      ctx.drawImage(tempCanvas, 0, 0);
+      resolve(resultCanvas.toDataURL('image/png'));
+    };
+    origImg.onerror = reject;
+    origImg.src = imageDataUrl;
+  });
+}
+
+function removeBatchItem(id) {
+  document.getElementById(id)?.remove();
+  batchQueue = batchQueue.filter(b => b.id !== id);
+}
+
+async function saveBatch() {
+  if (!batchQueue.length) return toast('⚠️ 没有可保存的项');
+  let saved = 0;
+  for (const item of batchQueue) {
+    const nameEl = document.getElementById(item.id + '-name');
+    const catEl = document.getElementById(item.id + '-cat');
+    if (!nameEl || !catEl) continue; // 已被移除
+    const name = nameEl.value.trim() || '未命名' + (saved + 1);
+    const category = catEl.value;
+    const cloth = {
+      id: Date.now() + saved,
+      name, category,
+      image: item.image,
+      color: '', season: 'all', note: '批量导入',
+      createdAt: Date.now() + saved
+    };
+    await dbAdd('clothes', cloth);
+    saved++;
+  }
+  batchQueue = [];
+  closeModal();
+  await refreshWardrobe();
+  toast(`✅ 成功导入 ${saved} 件衣物！`);
+  switchTab('wardrobe');
 }
 
 // ========== Manual Background Eraser ==========
